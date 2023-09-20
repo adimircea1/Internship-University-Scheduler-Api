@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoFixture.Xunit2" Version="4.18.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.11" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
+        <PackageReference Include="Moq" Version="4.20.69" />
+        <PackageReference Include="Moq.EntityFrameworkCore" Version="7.0.0.2" />
+        <PackageReference Include="xunit" Version="2.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Internship.UniversityScheduler.Api.Core\Internship.UniversityScheduler.Api.Core.csproj" />
+        <ProjectReference Include="..\Internship.UniversityScheduler.Api.Infrastructure\Internship.UniversityScheduler.Api.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

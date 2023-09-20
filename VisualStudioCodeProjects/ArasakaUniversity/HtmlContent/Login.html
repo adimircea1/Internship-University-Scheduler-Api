@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <link rel="stylesheet" href="../StyleSheets/Login.css">
+</head>
+<body>
+<div id="login-container">
+    <h2>Arasaka University - Login</h2>
+    <form id="login-form">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button id="loginBtn" type="submit">Login</button>
+    </form>
+    <div id="additional-links">
+        <label><a href="#">Forgot password?</a></label>
+        <label><a href="Register.html">No account? Register</a></label>
+    </div>
+    <div id="errorDiv">
+        <p id="errorMessage"></p>
+    </div>
+</div>
+
+<script type="module" src="../Scripts/Login.js"></script>
+</body>
+</html>

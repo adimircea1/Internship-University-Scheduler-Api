@@ -1,0 +1,566 @@
+/* Exam page generator styles */
+.exams-div {
+    width: 53%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto
+}
+
+.exam-div-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 65vh;
+    height: 65vh;
+    overflow-y: scroll;
+}
+
+.exam-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin-left: 15px;
+}
+
+
+.exam-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exam-details {
+    padding-right: 20px;
+}
+
+.exam-details p {
+    margin: 5px 0;
+}
+
+.attend-button {
+    padding: 8px 15px;
+    background-color: #3c2ebe;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.attend-button:hover {
+    background-color: #170a86de;
+}
+
+.exam-div-divider{
+    margin-bottom: 2px;
+    width: 50.5%;
+    height: 1px;
+    background-color: rgb(143, 143, 143);
+}
+
+.exam-options {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+    width: 50%;
+}
+
+.option-button {
+    background-color: #3c2ebe;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+.option-button:hover {
+    background-color: #170a86de;
+}
+
+.exam-search {
+    display: flex;
+    align-items: center;
+    margin-left: 5rem;
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.filter-icon {
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* pagination div css */
+.pagination-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    align-items: center;
+    height: 2.5rem;
+    width: 50%;
+}
+
+.pagination-arrow {
+    font-size: 1.5rem;
+    color: rgb(143, 143, 143);
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.pagination-arrow:hover {
+    color:#3c2ebe;
+}
+
+.page-indicator {
+    font-size: 1rem;
+    margin: 0 10px;
+}
+
+.entities-per-page-select {
+    padding: 5px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.entities-per-page-select:hover{
+    border-color: #3c2ebe;
+}
+
+/* Exam table menu */
+.exam-table-menu{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+/* Grades page */
+/* Style for the main grade table container */
+.grade-table-container {
+    margin: 20px;
+    padding: 20px;
+    width: 80%;
+    border-radius: 5px;
+    margin: auto;
+}
+
+/* Style for the grade table menu container */
+.grade-table-menu-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: auto;
+    margin-top: 1rem;
+}
+
+/* Style for the order buttons */
+.order-grades-button {
+    background-color: #3c2ebe;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+/* Style for the filtering icon */
+.grade-filter-icon {
+    color: #999;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.grade-filter-icon:hover {
+    color:#3c2ebe;
+}
+
+/* Style for the search box container */
+.search-box-container {
+    margin-left:36.5rem;
+    position: relative;
+}
+
+/* Style for the search box */
+.filter-grade-by-text-input{
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: auto;
+}
+
+/* Style for the grade table divider */
+.grade-table-divider {
+    margin: 0.5rem 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+/* Style for the grade table inner container */
+.grade-table-inner-container {
+   height: auto;
+}
+
+.grade-header {
+    display: flex;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-cell {
+    width: 100%;
+    text-align: center;
+}
+
+.header-cell:last-child {
+    position: relative;
+    left: -1%;
+}
+
+.grade-table-body {
+    max-height: 62vh; 
+    height: 62vh;
+    overflow-y: scroll;
+    font-size: 16px;
+}
+
+.grade-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.body-cell {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.grade-table-pagination-container{
+    text-align: center;
+    height: 3rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #ccc;
+}
+
+
+/* Profile section */
+.profile-data-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: 30rem;
+    border-radius: 10px;
+    padding: 2rem;
+    overflow: hidden;
+    height: 30rem;
+    background-color: #fff; /* Light background color */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Subtle box-shadow */
+    width: 50%;
+    margin: auto;
+}
+
+.profile-info {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.profile-info .student-info strong {
+    margin-right: 0.5rem; /* Adjust the spacing as needed */
+}
+
+.profile-header-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-info h2 {
+    margin-bottom: 1.5rem; /* More space below headings */
+    font-weight: bold;
+    font-size: 1.5rem;
+
+}
+
+.profile-info .student-info {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #666; /* Slightly muted text color */
+}
+
+.change-password {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.change-password h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem; /* More space below headings */
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.change-password input {
+    height: 2rem;
+    border: 1px solid #ccc;
+    margin-bottom: 0.75rem; /* More space between inputs */
+    padding: 0.5rem; /* Adjust input padding */
+    border-radius: 5px;
+    width: 95%;
+}
+
+.profile-header {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
+
+.profile-divider {
+    margin-top: 1rem; 
+    margin-bottom: 1.5rem; 
+    border-bottom: 1px solid #ccc; /* Thicker divider */
+    width: 50%;
+}
+
+.change-password-btn{
+    background-color: #3c2ebe;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+.change-password-btn:hover{
+    background-color: #170a86de;
+}
+
+/* Attendance table */
+.table-content {
+    margin-top: 3rem;
+    margin-left: 3.5rem;
+    width: 92%;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.3); 
+    transition: opacity 0.3s ease-in-out; 
+    border-radius: 10px;
+}
+
+.loaded {
+    opacity: 1; 
+}
+
+.entity-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.inner-table-div{
+    overflow-y: scroll;
+    height: 65vh;
+    max-height: 65vh;
+}
+
+/* table head */
+.entity-table-head {
+    color:   #333333;
+    position: sticky; 
+    top: 0;
+    z-index: 1;
+    background-color: #f2f2f2;
+}
+
+.entity-table th {
+    padding: 10px;
+}
+
+.entity-table td {
+    padding: 8px;   
+}
+
+/* Style for filtering icon */
+.attendance-filter-icon {
+    position: relative;
+    left: 16.5rem;
+    color: #999; /* Icon color */
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 9px;
+    margin-left: auto;
+    padding: 8px;
+}
+
+/* Change icon color on hover */
+.attendance-filter-iconn:hover {
+    color: #333; /* Hover color */
+}
+
+/* Style for table body */
+.entity-table-body {
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.entity-table-body tr{
+    text-align: center;
+    display: table-row;
+    height: 3rem;
+}
+
+/* Hover effect for rows */
+.entity-table-body tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Style for table cells */
+
+.icons-row{
+    text-align: center;
+    color: rgb(143, 143, 143);
+}
+
+/* Style for search boxes */
+.search-row td {
+    background-color: #f2f2f2; 
+}
+
+.search-row input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.pagination-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+.pagination-arrow {
+    font-size: 1.5rem;
+    color: rgb(143, 143, 143);
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.pagination-arrow:hover {
+    color:#3c2ebe;
+}
+
+.page-indicator {
+    font-size: 1rem;
+    margin: 0 10px;
+}
+
+.order-icon{
+    cursor: pointer;
+}
+
+.order-icon:hover{
+    color:#3c2ebe;
+}
+
+.order-asc{
+    margin-left: 10px;
+}
+
+.entities-per-page-select {
+    padding: 5px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.entities-per-page-select:hover{
+    border-color: #3c2ebe;
+}
+
+
+
+@media screen and (min-width: 1920px) {
+    .exam-div-content{
+        max-height: 75vh;
+        height: 75vh;
+    }
+
+    .exam-search{
+        margin-left: 24rem;
+    }
+
+    .search-box-container {
+        margin-left:55.9rem;
+        position: relative;
+    }
+
+    .grade-table-body {
+        max-height: 72vh; 
+        height: 72vh;
+        overflow-y: scroll;
+        font-size: 16px;
+    }
+
+    .attendance-filter-icon{
+        left: 20.5rem;
+    }
+
+}
+
+@media screen and (min-width: 2000px) and (max-width: 3000px) {
+    
+    .search-box-container {
+        margin-left:88.9rem;
+        position: relative;
+    }
+
+    .table-content {
+        margin-left: 6rem;
+    }
+
+    .attendance-filter-icon{
+        left: 29.5rem;
+    }
+}
+  

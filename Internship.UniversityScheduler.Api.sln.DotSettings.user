@@ -1,0 +1,42 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cacremene_005CRiderProjects_005CCoreLogic_005CCoreLogic_002Esln/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Cacremene_005CRiderProjects_005CCoreLogic_005COnEntitySharedLogic_005CUpdateByReflectionWithNullFiltering_002Ecs/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2611face_002D5ea6_002D4f08_002Da2b8_002Dc5a2fc55a26b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt; #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Projects\internship-for-adrian-cremene\Internship.UniversityScheduler.UnitTester" Presentation="&amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2937aede_002D1fd0_002D4d35_002D9d04_002De32028ba10e4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from OnUniversityGroupTesting.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;AE4D9F81-1AF3-4846-8394-A107EEF1C967/f:OnUniversityGroupTesting.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=37c32e38_002D936a_002D4fe9_002Db954_002Dc5e6fea02a35/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Projects\internship-for-adrian-cremene\Internship.UniversityScheduler.UnitTester" Presentation="&amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4fc0ed49_002Dc50b_002D4041_002Dbed5_002D16cc727184cc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from OnCourseTesting.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;AE4D9F81-1AF3-4846-8394-A107EEF1C967/f:OnCourseTesting.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;AE4D9F81-1AF3-4846-8394-A107EEF1C967/f:OnStudentTesting.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;AE4D9F81-1AF3-4846-8394-A107EEF1C967/f:OnUniversityGroupTesting.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5290e4a2_002D6e30_002D43b6_002Dad1e_002De776766d48d6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt; #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Projects\internship-for-adrian-cremene\Internship.UniversityScheduler.UnitTester" Presentation="&amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=710bfac4_002Dce15_002D429e_002Dbfea_002D98c7cf56509e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Projects\internship-for-adrian-cremene\Internship.UniversityScheduler.UnitTester" Presentation="&amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=83a4a112_002D7265_002D4c5d_002D9905_002D47efed546a6c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from OnStudentTesting.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;AE4D9F81-1AF3-4846-8394-A107EEF1C967/f:OnStudentTesting.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=98b953df_002Dbfe6_002D41d4_002D8758_002D177ca27bd1ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="True" ContinuousTestingMode="1" Name="Mapping_Student_To_StudentGetDto_Ok" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::AE4D9F81-1AF3-4846-8394-A107EEF1C967::net7.0::Internship.UniversityScheduler.UnitTester.OnStudentMappingTests.Mapping_Student_To_StudentGetDto_Ok&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::AE4D9F81-1AF3-4846-8394-A107EEF1C967::net7.0::Internship.UniversityScheduler.UnitTester.OnStudentMappingTests.Mapping_StudentGetDto_To_Student_Ok&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=eefe91fe_002Df8e3_002D4ec9_002Dada8_002Da036ac8244b4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt; #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::AE4D9F81-1AF3-4846-8394-A107EEF1C967::net7.0::Internship.UniversityScheduler.UnitTester.OnStudentCrudOperationsTesting.StudentService_AddStudentAsync_Adds_Valid_Student_In_Database_Ok&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6a2f3cb_002D786b_002D4b3e_002Dbcd3_002Dd558cbf321e4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from OnUpdateMethodTesting.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Internship folder\internship-for-adrian-cremene\Internship.UniversityScheduler.UnitTester" Presentation="&amp;lt;Internship.UniversityScheduler.UnitTester&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

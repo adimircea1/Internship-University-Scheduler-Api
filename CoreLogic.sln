@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnEntitySharedLogic", "OnEntitySharedLogic\OnEntitySharedLogic.csproj", "{88892EB6-9AF3-4CF1-8CE2-0BF3858ADF89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreLogicTesting", "CoreLogicTesting\CoreLogicTesting.csproj", "{A0369EEB-FC7B-4FF2-9DAA-4A97C2373FEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88892EB6-9AF3-4CF1-8CE2-0BF3858ADF89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88892EB6-9AF3-4CF1-8CE2-0BF3858ADF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88892EB6-9AF3-4CF1-8CE2-0BF3858ADF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88892EB6-9AF3-4CF1-8CE2-0BF3858ADF89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0369EEB-FC7B-4FF2-9DAA-4A97C2373FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0369EEB-FC7B-4FF2-9DAA-4A97C2373FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0369EEB-FC7B-4FF2-9DAA-4A97C2373FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0369EEB-FC7B-4FF2-9DAA-4A97C2373FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

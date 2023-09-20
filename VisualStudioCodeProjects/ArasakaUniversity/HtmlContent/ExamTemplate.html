@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam for {INSERT_STUDENT_NAME_HERE}</title>
+    <link rel="stylesheet" href="../Stylesheets/ExamTemplateCss.css">
+   
+</head>
+<body>
+    <h1 class="WelcomeHeader">{INSERT_COURSE_DOMAIN_HERE} exam</h1>
+    <h2 class="WelcomeHeader">You have <span class="timer" data-exam-time="{INSERT_TIMER_HERE}" id="countdown"></span>
+        minutes to complete the exam</h2>
+    <h3 id="finalGrade"></h3>
+
+    <br>
+
+    <button class="btn" id="submitBtn">Submit answers</button>
+    <button class="btn" id="goBackBtn" style="display: none;">Go back to main page</button>
+
+
+    <script type="module" src="../Scripts/ExamHandler.js"></script>
+        
+
+</body>
+</html>

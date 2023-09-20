@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Main Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../StyleSheets/AdminMainPage.css">
+    <link rel="stylesheet" href="../StyleSheets/UpperBarAndSideBarCss.css">
+</head>
+<body>
+    <div class="main-page">
+        <div class="overlay" id="overlay"></div>
+        <div class="behind-modal-overlay"></div>
+
+        <div id="sidebar">
+            <div class="logo">
+                <h5 class="logoContent">Arasaka</h5>
+                <h6 class="logoContent">University</h6>
+            </div>
+            <hr class="divider">
+            <ul id="menu">
+                <li class="menu-element"><a href="#Home" class="sidebar-active"><i class="fas fa-home"></i>Home</a></li>
+                <li class="menu-element"><a href="#Requests"><i class="fas fa-user-plus"></i>Registration</a></li>
+                <li class="menu-element"><a href="Login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-page-content">
+            <div id="upperBar">
+                <div class="upperBarContent">
+                    <p class="upperBarCurrentDirectory"></p>
+                    <p class="upperBarEmail">user@example.com</p>
+                </div>
+            </div>  
+
+            <div class="page-content" id="pageContent">
+               
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="module" src="../Scripts/MainPageScripts/AdminMainPage/AdminMainPage.js"></script>
+<script type="module" src="../Scripts/MainPageScripts/AdminMainPage/HomePageContentGenerator.js"></script>
+<script type="module" src="../Scripts/MainPageScripts/AdminMainPage/HomeEntityTableGenerator.js"></script>
+<script type="module" src="../Scripts/MainPageScripts/AdminMainPage/RegisterRequestTableGenerator.js"></script>
+<script type="module" src="../Scripts/MainPageScripts/AdminMainPage/AdminSideBarAnchorHandler.js"></script>
+</body>
+</html>

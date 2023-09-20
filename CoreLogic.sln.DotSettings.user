@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=34604f46_002D2339_002D481d_002Dbc3e_002D5ebceab1d44a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;CoreLogicTesting&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Internship folder\internship-for-adrian-cremene\CoreLogicTesting" Presentation="&amp;lt;CoreLogicTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dfb1b4dd_002D32bd_002D4342_002Da829_002D5bc36343aea4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Validating_An_Entity_With_IntValue_Bigger_Than_50_Throws_Validation_Exception" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Internship folder\internship-for-adrian-cremene\CoreLogicTesting" Presentation="&amp;lt;CoreLogicTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f1861b2b_002D3881_002D438d_002Da363_002D5d98a36beed5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Creating_An_Entity_With_IntValue_Bigger_Than_50_Throws_Validation_Exception" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Internship folder\internship-for-adrian-cremene\CoreLogicTesting" Presentation="&amp;lt;CoreLogicTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

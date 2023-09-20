@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailVerificationApi.Presentation", "EmailVerificationApi.Presentation\EmailVerificationApi.Presentation.csproj", "{CDE0903C-1894-4C03-82C6-3EF20197BC55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailVerificationApi.Core", "EmailVerificationApi.Core\EmailVerificationApi.Core.csproj", "{DD782E28-D363-4248-9F9C-F2155A4D6344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailVerification.Library", "EmailVerification.Library\EmailVerification.Library.csproj", "{F5F784BB-1E8A-4EB1-BDAB-7EEE85CA5305}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDE0903C-1894-4C03-82C6-3EF20197BC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE0903C-1894-4C03-82C6-3EF20197BC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE0903C-1894-4C03-82C6-3EF20197BC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE0903C-1894-4C03-82C6-3EF20197BC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD782E28-D363-4248-9F9C-F2155A4D6344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD782E28-D363-4248-9F9C-F2155A4D6344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD782E28-D363-4248-9F9C-F2155A4D6344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD782E28-D363-4248-9F9C-F2155A4D6344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5F784BB-1E8A-4EB1-BDAB-7EEE85CA5305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F784BB-1E8A-4EB1-BDAB-7EEE85CA5305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F784BB-1E8A-4EB1-BDAB-7EEE85CA5305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F784BB-1E8A-4EB1-BDAB-7EEE85CA5305}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

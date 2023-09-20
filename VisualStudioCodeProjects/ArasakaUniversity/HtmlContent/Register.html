@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register page</title>
+    <link rel="stylesheet" href="../StyleSheets/Register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+<body>
+
+    <div id="register-container">
+        <h2 class="welcome-text">Arasaka University - Registration</h2>
+        <div class="role-selection-container">
+            <label for="role-select">Select your role:</label>
+            <select id="role-select" class="role-select">
+                <option value="student">Student</option>
+                <option value="professor">Professor</option>
+            </select>
+        </div>
+        
+        
+        <form id="register-form">
+           
+        </form>
+        
+        <div id="additional-links">
+            <label><a href="Login.html">Already have an account? Login</a></label>
+        </div>
+        
+        <div id="errorDiv">
+            <p id="errorMessage"></p>
+        </div>
+        
+        <script type="module" src="../Scripts/Register.js"></script>
+    </div>
+</body>
+</html>

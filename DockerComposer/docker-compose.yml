@@ -1,0 +1,109 @@
+version: '3.9'
+
+services:
+  authorization-authentication-api:
+    image: authorization-authentication-image:latest
+    depends_on:
+      - authorization-authentication-database
+    environment:
+      - EnableStartupMigrations=true
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - AuthorizationAuthenticationDockerDbConnectionString=User ID=postgres;Password=admin;Host=authorization-authentication-database;Port=5432;Database=AuthorizationAuthenticationDatabase;
+    ports:
+      - "5002:5002"
+      - "5238:5238"
+    build:
+      context: .
+
+  university-scheduler-api:
+    image: university-scheduler-image:latest
+    depends_on:
+      - university-scheduler-database
+      - rabbitmq
+    environment:
+      - EnableStartupMigrations=true
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - UniversitySchedulerDockerDbConnectionString=User ID=postgres;Password=admin;Host=university-scheduler-database;Port=5432;Database=UniversitySchedulerDatabase;
+    ports:
+      - "5001:5001"
+      - "5150:5150"
+    build:
+      context: .
+
+  student-examination-api:
+    image: student-examination-image:latest
+    depends_on:
+      - student-examination-database
+    environment:
+      - EnableStartupMigrations=true
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ExaminationDockerDbConnectionString=User ID=postgres;Password=admin;Host=student-examination-database;Port=5432;Database=ExaminationApiDatabase;
+    ports:
+      - "5003:5003"
+      - "5113:5113"
+    build:
+      context: .
+
+  email-verification-api:
+    image: email-verification-image:latest
+    depends_on:
+      - rabbitmq
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+    ports:
+      - "5004:5004"
+      - "5024:5024"
+    build:
+      context: .
+
+  authorization-authentication-database:
+    image: postgres:latest
+    volumes:
+      - AuthorizationAuthenticationDatabase:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=AuthorizationAuthenticationDatabase
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432"
+
+  university-scheduler-database:
+    image: postgres:latest
+    volumes:
+      - UniversitySchedulerDatabase:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=UniversitySchedulerDatabase
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5433:5432"  
+    
+  student-examination-database:
+    image: postgres:latest
+    volumes:
+      - ExaminationApiDatabase:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=ExaminationApiDatabase
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5434:5432"  
+   
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672" # Management UI
+      - "5672:5672"   # AMQP protocol
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  AuthorizationAuthenticationDatabase:
+  UniversitySchedulerDatabase:
+  ExaminationApiDatabase:
+  rabbitmq_data:
+
+

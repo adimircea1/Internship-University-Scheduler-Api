@@ -1,0 +1,776 @@
+.table-generator-menu {
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.table-generator-menu .table-option{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin-left: 3rem;
+    margin-top: 4.5px;
+}
+
+.table-generator-menu  .option-element:nth-child(2),
+.table-generator-menu  .option-element:nth-child(3),
+.table-generator-menu  .option-element:nth-child(4){
+    margin-left: 3.5rem;
+}
+
+.table-generator-menu .table-option li{
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.table-generator-menu .table-option a{
+    text-decoration: none;
+    color: rgb(143, 143, 143);
+    font-size: 18px;
+    padding-bottom: 2px;
+}
+
+.table-generator-menu .table-option .option-active{
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.table-divider{
+    width: 91.5%;
+    margin-left: 4.3rem;
+    margin-top: -3.25rem;
+    background-color: rgb(143, 143, 143);
+    height: 1px;
+}
+
+.register-table-divider{
+    width: 91.5%;
+    margin-left: 4.3rem;
+    margin-top: -1.25rem;
+    background-color: rgb(143, 143, 143);
+    height: 1px;
+}
+
+.table-content {
+    margin-top: 20px;
+    margin-left: 3.8rem;
+    width: 92%;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.3); 
+    transition: opacity 0.3s ease-in-out; 
+    border-radius: 10px;
+}
+
+.loaded {
+    opacity: 1; 
+}
+
+.entity-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.inner-table-div{
+    overflow-y: scroll;
+    height: 65vh;
+    max-height: 65vh;
+}
+
+/* table head */
+.entity-table-head {
+    color:   #333333;
+    position: sticky; 
+    top: 0;
+    z-index: 1;
+    background-color: #f2f2f2;
+}
+
+.entity-table th {
+    padding: 10px;
+}
+
+.entity-table td {
+    padding: 8px;   
+}
+
+/* Style for filtering icon */
+.filter-icon {
+    margin-left: 5px; /* Adjust the margin as needed */
+    color: #999; /* Icon color */
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 9px;
+    margin-left: 10px;
+    padding: 8px;
+}
+
+/* Change icon color on hover */
+.filter-icon:hover {
+    color: #333; /* Hover color */
+}
+
+/* Style for table body */
+.entity-table-body {
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.entity-table-body tr{
+    text-align: center;
+    display: table-row;
+    height: 3rem;
+}
+
+/* Hover effect for rows */
+.entity-table-body tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Style for table cells */
+
+.icons-row{
+    text-align: center;
+    color: rgb(143, 143, 143);
+}
+
+/* Style for search boxes */
+.search-row td {
+    background-color: #f2f2f2; 
+}
+
+.search-row input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.action-icon {
+    margin: 0 5px;
+    color: rgb(143, 143, 143);
+    cursor: pointer;
+}
+
+.delete-action:hover{
+    color:red;
+}
+
+.update-action:hover,
+.approve-action:hover{
+    color: green;
+}
+
+.manage-action:hover{
+    color: #333;
+}
+
+.add-entity-button{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3c2ebe;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    float: right;
+    margin-right: 3.8rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.add-entity-button:hover {
+    background-color: #170a86de;
+}
+
+.add-entity-button:focus {
+    outline: none;
+}
+
+.add-entity-button:active {
+    transform: scale(0.95);
+}
+
+/* Styling for the add menu sidebar */
+.add-entity-sidebar {
+    position: fixed;
+    top: 0;
+    right: -50%; /* Initially hidden */
+    width: 35%;
+    height: 100%;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+}
+
+.add-entity-sidebar .add-entity-sidebar-buttons {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+}
+
+.add-entity-sidebar .add-entity-sidebar-button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #3c2ebe;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-entity-sidebar .add-entity-sidebar-button:hover {
+    background-color: #170a86de;
+}
+
+.add-entity-sidebar .add-entity-sidebar-button:focus {
+    outline: none;
+}
+
+.add-entity-sidebar .add-entity-sidebar-button:active {
+    transform: scale(0.95);
+}
+
+.add-entity-sidebar-message{
+    background-color: #fdfdfd;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); 
+    padding: 0.5rem 1rem;
+    text-align: right;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.add-entity-sidebar-item{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.add-entity-sidebar-item:last-child {
+    border-bottom: none; 
+}
+
+
+.add-entity-sidebar-item label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.adding-status-message{
+    margin-left: 1rem;
+}
+
+.adding-status-div{
+    height: 4rem;
+}
+
+/* Style for update menu sidebar */
+/* Styling for the sidebar */
+.update-entity-sidebar {
+    position: fixed;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.update-entity-sidebar .update-entity-sidebar-buttons {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+}
+
+.update-entity-sidebar .update-entity-sidebar-button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #3c2ebe;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.update-entity-sidebar .update-entity-sidebar-button:hover {
+    background-color: #170a86de;
+}
+
+.update-entity-sidebar .update-entity-sidebar-button:focus {
+    outline: none;
+}
+
+.update-entity-sidebar .update-entity-sidebar-button:active {
+    transform: scale(0.95);
+}
+
+.update-entity-sidebar-message {
+    background-color: #fdfdfd;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); 
+    padding: 0.5rem 1rem;
+    text-align: right;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.update-entity-sidebar-item {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.update-entity-sidebar-item:last-child {
+    border-bottom: none; 
+}
+
+.update-entity-sidebar-item label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.entityPropertyInputTextBox {
+    width: 80%; 
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.updating-status-message {
+    margin-left: 1rem;
+}
+
+.updating-status-div {
+    height: 4rem;
+}
+
+/* common style for add sidebar menu and update sidebar menu */
+.entityPropertyInputTextBox{
+    width: 80%; 
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.items-div{
+    max-height: 35rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* overlay style */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; /* Place the overlay behind the sidebar */
+    display: none;
+}
+
+/* Pagination div css */
+.pagination-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+.pagination-arrow {
+    font-size: 1.5rem;
+    color: rgb(143, 143, 143);
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.pagination-arrow:hover {
+    color:#3c2ebe;
+}
+
+.page-indicator {
+    font-size: 1rem;
+    margin: 0 10px;
+}
+
+.order-icon{
+    cursor: pointer;
+}
+
+.order-icon:hover{
+    color:#3c2ebe;
+}
+
+.order-asc{
+    margin-left: 10px;
+}
+
+.entities-per-page-select {
+    padding: 5px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.entities-per-page-select:hover{
+    border-color: #3c2ebe;
+}
+
+.register-requests-table{
+    margin-top: 3rem;
+}
+
+.register-requests-table-page-header{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Styling for the manage menu sidebar */
+.manage-entity-sidebar {
+    position: fixed;
+    top: 0;
+    right: -50%; /* Initially hidden */
+    width: 40%;
+    height: 100%;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+}
+
+.manage-entity-sidebar .manage-entity-sidebar-buttons {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+}
+
+.manage-entity-sidebar .manage-entity-sidebar-button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #3c2ebe;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.manage-entity-sidebar .manage-entity-sidebar-button:hover {
+    background-color: #170a86de;
+}
+
+.manage-entity-sidebar .manage-entity-sidebar-button:focus {
+    outline: none;
+}
+
+.manage-entity-sidebar .manage-entity-sidebar-button:active {
+    transform: scale(0.95);
+}
+
+.manage-entity-sidebar-message{
+    background-color: #fdfdfd;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); 
+    padding: 0.5rem 1rem;
+    text-align: right;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Table styling */
+.student-list{
+    max-height: 36rem;
+    height: 36rem;
+    overflow-y: scroll;
+    margin-top: 1rem;
+}
+
+.student-table {
+    width: 92%;
+    margin-left: 2rem;
+    border-collapse: collapse;
+}
+
+.student-table thead{
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+.student-table thead th{
+    width: 33.33%;
+}
+
+.student-table th, td {
+    padding: 8px 12px;
+}
+
+.student-table tbody {
+    text-align: center;
+}
+
+.student-table tr {
+    font-size: 18px;
+    height: 2.5rem;
+}
+
+.student-table tbody tr{
+    height: 2.7rem;
+}
+
+.student-table tbody tr:hover{
+    background-color: #e0e0e0;
+}
+
+.student-table .remove-icon {
+    cursor: pointer;
+    font-size: 18px;  
+    color: rgb(143, 143, 143);
+}
+
+.student-table .remove-icon:hover {
+    color: #c0392b; 
+}
+
+.manage-group-pagination-div{
+    width: 92%;
+    margin-left: 2rem;
+    border: none;
+}
+
+.manage-group-fullname-filter{
+    width: 33.33%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.middle-modal-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    width: 60%;
+    height: 80%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.behind-modal-overlay{
+    z-index: 1001;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: none;
+
+}
+
+/* middle modal components */
+.modal-message-container {
+    position: absolute;
+    left: 0; 
+    top: 0;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #fdfdfd;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px); 
+    padding: 0.5rem 1rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.modal-button-container {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+}
+
+.modal-button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #3c2ebe;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-button:hover {
+    background-color: #170a86de;
+}
+
+.modal-button:focus {
+    outline: none;
+}
+
+.modal-button:active {
+    transform: scale(0.95);
+}
+
+.middle-modal-student-list-container{
+    margin-top: 2rem;
+    width: 100%;
+    max-height: 25rem;
+    height: 25rem;
+    overflow-y: scroll;
+    border: none;
+}
+
+.middle-modal-student-table{
+    width: 92%;
+    margin-left: 2rem;
+    border-collapse: collapse;
+}
+
+.middle-modal-student-table thead{
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+.middle-modal-student-table thead th{
+    width: 33.33%;
+}
+
+.middle-modal-student-table th, td {
+    padding: 8px 12px;
+}
+
+.middle-modal-student-table tbody {
+    text-align: center;
+}
+
+.middle-modal-student-table tr {
+    font-size: 18px;
+    height: 2.5rem;
+}
+
+.middle-modal-student-table tbody tr{
+    height: 2.7rem;
+}
+
+.middle-modal-student-table tbody tr:hover{
+    background-color: #e0e0e0;
+}
+
+.middle-modal-manage-group-filter{
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.middle-modal-group-pagination-div{
+    margin-top: 2.5rem;
+    height: 2.5rem;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+.student-checkbox{
+    width: 15px;
+    height: 15px;
+}
+
+@media screen and (min-width: 1920px) {
+    .add-entity-button {
+        margin-right: 6rem;
+    }
+
+    .student-list{
+        max-height: 50rem;
+        height: 50rem;
+    }
+
+    .middle-modal-student-list-container{
+        max-height: 36rem;
+        height: 36rem;
+    }
+
+   
+}

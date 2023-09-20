@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    position: relative;
+}
+
+#register-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: auto; 
+    position: fixed;
+    overflow: hidden;
+}
+
+.welcome-text {
+    text-align: center;
+    color: #3c2ebe;
+    margin-bottom: 25px;
+}
+
+
+#lastName{
+    width: 107%;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.name-group,
+.email-phone-group {
+    display: flex;
+    gap: 2rem;
+}
+
+#birthdate{
+    width: 315%;
+}
+
+.split-input{
+    display: flex;
+    flex-direction: column;
+}
+
+
+label {
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #3c2ebe;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+}
+
+button:hover {
+    background-color: #170a86de;
+}
+
+#additional-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#additional-links a {
+    text-decoration: none;
+    color: #3c2ebe;
+    font-size: 14px;
+}
+
+#additional-links a:hover {
+    color: #3c2ebe;
+}
+
+#errorDiv {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+/* Style for the role selection container */
+.role-selection-container {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Style for the label */
+.role-selection-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style for the role selection dropdown */
+.role-select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style for the specialty group */
+.speciality-group {
+    width: 100%;
+}
+
+/* Style for select inputs */
+.split-input select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 330%;
+    box-sizing: border-box;
+}

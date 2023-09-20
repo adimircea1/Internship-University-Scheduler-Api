@@ -1,0 +1,54 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2f0d7dee_002Dbcaa_002D48ab_002Da9c1_002D9e4bf1ad9af3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt; #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Internship folder\internship-for-adrian-cremene\Internship.AuthorizationAuthentication.UnitTesting" Presentation="&amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=571d1a96_002D9301_002D4c3a_002Da57b_002D932a8e01364b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt; #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Projects\internship-projects\internship-for-adrian-cremene\Internship.AuthorizationAuthentication.UnitTesting" Presentation="&amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6d5acd72_002D48e0_002D4bf0_002Da69a_002D329066601d01/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from OnAuthenticationControllerTesting.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnAuthenticationControllerTesting.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7470ec69_002Dd7ec_002D4d1d_002D848d_002D4631c81d54bc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Verify_If_User_Is_Added_Correctly_Async" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::1CE79D8D-131C-441B-A975-D038645E2040::net7.0::Internship.AuthorizationAuthentication.UnitTesting.OnUserTesting&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnPasswordManagerTesting.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7e7c1605_002D1c07_002D49ce_002D9ab5_002D0de995976fba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UserAuthenticationService_RegisterUserAsync_Throws_WrongUserCredentialsException_For_Different_Passwords" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Internship folder\internship-for-adrian-cremene\Internship.AuthorizationAuthentication.UnitTesting" Presentation="&amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=90b36cdb_002D0fd6_002D4b58_002Da3b3_002D98f819b1d947/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from OnAuthenticationControllerTesting.cs #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnAuthenticationControllerTesting.cs&lt;/ProjectFile&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aeaf95c3_002D7d16_002D4f4b_002D83cb_002Dca435479efb2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Projects\internship-projects\internship-for-adrian-cremene\Internship.AuthorizationAuthentication.UnitTesting" Presentation="&amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d33fa1bf_002Dc8ba_002D4256_002Dbe52_002D97bf311a6752/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Refresh_Method_Return_New_AccessToken_And_RefreshToken_Async" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::1CE79D8D-131C-441B-A975-D038645E2040::net7.0::Internship.AuthorizationAuthentication.UnitTesting.OnAuthenticationControllerTesting.Refresh_Method_Returns_New_Refresh_Token_If_Refresh_Request_Is_Valid_Async&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1CE79D8D-131C-441B-A975-D038645E2040::net7.0::Internship.AuthorizationAuthentication.UnitTesting.OnAuthenticationControllerTesting.Logout_Method_Deletes_User_Refresh_Token_Async&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1CE79D8D-131C-441B-A975-D038645E2040::net7.0::Internship.AuthorizationAuthentication.UnitTesting.OnAuthenticationControllerTesting.Logout_Method_Returns_No_Content_If_User_Logouts_Successfully_Async&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1CE79D8D-131C-441B-A975-D038645E2040::net7.0::Internship.AuthorizationAuthentication.UnitTesting.OnPasswordManagerTesting.Password_Manager_Returns_False_If_Password_Do_Not_Match&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1CE79D8D-131C-441B-A975-D038645E2040::net7.0::Internship.AuthorizationAuthentication.UnitTesting.OnPasswordManagerTesting.Password_Manager_Returns_True_If_Passwords_Match&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::1CE79D8D-131C-441B-A975-D038645E2040::net7.0::Internship.AuthorizationAuthentication.UnitTesting.OnPasswordManagerTesting&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnUserTesting.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnAuthenticationControllerTesting.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e3780285_002D80de_002D446d_002Db504_002D6a586718215d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from OnAuthenticationServiceTesting.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Internship folder\internship-for-adrian-cremene\Internship.AuthorizationAuthentication.UnitTesting" Presentation="&amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e9511899_002Dbf86_002D4099_002D9f22_002D2f47778985cd/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="True" ContinuousTestingMode="1" Name="All tests from &amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\acremene\Projects\internship-for-adrian-cremene\Internship.AuthorizationAuthentication.UnitTesting" Presentation="&amp;lt;Internship.AuthorizationAuthentication.UnitTesting&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fbf85b34_002D6f60_002D4548_002Db9a4_002D4ecc1a0088ac/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="True" ContinuousTestingMode="1" Name="All tests from OnAuthenticationControllerTesting.cs #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnAuthenticationControllerTesting.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnPasswordManagerTesting.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;1CE79D8D-131C-441B-A975-D038645E2040/f:OnUserTesting.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
