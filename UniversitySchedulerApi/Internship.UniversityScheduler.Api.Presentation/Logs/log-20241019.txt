@@ -1,0 +1,17 @@
+2024-10-19T23:32:57.7372967+03:00  [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl (d6ab0d5f)
+2024-10-19T23:32:57.7411045+03:00  [INF] Quartz Scheduler created (389d80b0)
+2024-10-19T23:32:57.7416638+03:00  [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory (17471663)
+2024-10-19T23:32:57.7422746+03:00  [INF] RAMJobStore initialized. (8c5a21db)
+2024-10-19T23:32:57.7430379+03:00  [INF] Quartz Scheduler 3.7.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized (ff5ae6e9)
+2024-10-19T23:32:57.7434906+03:00  [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10 (7942d54d)
+2024-10-19T23:32:57.7442360+03:00  [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False (46d3fae1)
+2024-10-19T23:32:57.7831821+03:00  [WRN] Overriding address(es) '"http://localhost:5150"'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead. (88de3686)
+2024-10-19T23:32:57.7950005+03:00  [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started. (51b2cfb9)
+2024-10-19T23:33:30.9727235+03:00  [INF] 
+10/19/2024 11:33:30 PM ---> Get all grades method has been called! (5291785e)
+2024-10-19T23:33:31.4241750+03:00  [INF] Executed DbCommand ("31"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT g.\"Id\", g.\"CatalogueId\", g.\"CourseId\", g.\"DateOfGrade\", g.\"StudentId\", g.\"Value\"
+FROM \"Grades\" AS g" (0723d8ff)
+2024-10-19T23:33:36.3996576+03:00  [INF] Scheduler "QuartzScheduler_$_NON_CLUSTERED" shutting down. (cff05048)
+2024-10-19T23:33:36.4010375+03:00  [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused. (4b94edca)
+2024-10-19T23:33:36.4075523+03:00  [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete. (0c25828c)
