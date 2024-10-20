@@ -1,5 +1,7 @@
 import { RemoveTokenAsync } from "../../Logout.js";
 import { GenerateProfessorProfileAsync } from "./ProfessorProfileSection.js";
+import { DisplayInitialCatalogueTable } from "../ProfessorMainPage/CatalogueTableGenerator.js"
+import { FetchAndDisplayExams } from "../ProfessorMainPage/ExamsControlPage.js"
 
 
 const sideBar = document.getElementById('sidebar');
@@ -30,11 +32,18 @@ menuContent.forEach(element => {
                 break;
             case "Catalogues" :
                 pageContent.innerHTML = '';
+                const tableDiv = document.createElement("div");
+                tableDiv.classList.add('table-content');
+                pageContent.append(tableDiv);
+                await DisplayInitialCatalogueTable();
 
                 break;
             case "Exams" :
                 pageContent.innerHTML = '';
-
+                const examTable = document.createElement("div");
+                examTable.classList.add('table-content');
+                pageContent.append(examTable);
+                await FetchAndDisplayExams();
                 break;
             case "Profile" :
                 pageContent.innerHTML = '';
@@ -51,5 +60,4 @@ menuContent.forEach(element => {
                 break;
         }
     });
-
 });

@@ -1,7 +1,7 @@
 let accessToken = localStorage.getItem('AccessToken');
 
-export async function GetExamByIdAsync(examId){
-    const url = new URL(`http://localhost:5113/exams/${examId}`);
+export async function GetProblemByIdAsync(problemId){
+    const url = new URL(`http://localhost:5113/problems/${problemId}`);
     let fetchedData;
     const requestOptions = {
         method: 'GET',
@@ -19,7 +19,7 @@ export async function GetExamByIdAsync(examId){
     return fetchedData;
 }
 
-export async function GetExamsAsync(maxEntities, currentPageNumber, orderBy, orderDirection){
+export async function GetProblemsAsync(maxEntities, currentPageNumber, orderBy, orderDirection){
     const paginationSettings = {
         PageSize : maxEntities,
         PageNumber : currentPageNumber,
@@ -27,7 +27,7 @@ export async function GetExamsAsync(maxEntities, currentPageNumber, orderBy, ord
         OrderDirection : orderDirection
     };
 
-    const url = new URL("http://localhost:5113/exams/ordered");
+    const url = new URL("http://localhost:5113/problems/ordered");
     let fetchedData;
     const requestOptions = {
         method: 'POST',
@@ -46,8 +46,8 @@ export async function GetExamsAsync(maxEntities, currentPageNumber, orderBy, ord
     return fetchedData;
 }
 
-export async function GetAllExamsAsync(){
-    const url = new URL("http://localhost:5113/exams");
+export async function GetAllProblemsAsync(){
+    const url = new URL("http://localhost:5113/problems");
     let fetchedData;
     const requestOptions = {
         method: 'GET',
@@ -65,14 +65,14 @@ export async function GetAllExamsAsync(){
     return fetchedData;
 }
 
-export async function GetFilteredExamsAsync(maxEntities, currentPageNumber, filterBy){
+export async function GetFilteredProblemsAsync(maxEntities, currentPageNumber, filterBy){
     const filteringSettings = {
         PageSize : maxEntities,
         PageNumber : currentPageNumber,
         FilterBy : filterBy
     };
 
-    const url = new URL("http://localhost:5113/exams/filtered");
+    const url = new URL("http://localhost:5113/problems/filtered");
     let fetchedData;
     const requestOptions = {
         method: 'POST',
@@ -91,7 +91,7 @@ export async function GetFilteredExamsAsync(maxEntities, currentPageNumber, filt
     return fetchedData;
 }
 
-export async function GetFilteredAndOrderedExamsAsync(maxEntities, currentPageNumber, filterBy, orderBy, orderDirection){
+export async function GetFilteredAndOrderedProblemsAsync(maxEntities, currentPageNumber, filterBy, orderBy, orderDirection){
     const filteringSettings = {
         PageSize : maxEntities,
         PageNumber : currentPageNumber,
@@ -100,7 +100,7 @@ export async function GetFilteredAndOrderedExamsAsync(maxEntities, currentPageNu
         OrderDirection : orderDirection
     };
 
-    const url = new URL("http://localhost:5113/exams/filtered-ordered");
+    const url = new URL("http://localhost:5113/problems/filtered-ordered");
     let fetchedData;
     const requestOptions = {
         method: 'POST',
@@ -119,15 +119,15 @@ export async function GetFilteredAndOrderedExamsAsync(maxEntities, currentPageNu
     return fetchedData;
 }
 
-export async function GetAllExamsOfStudent(studentId){
-    const url = new URL(`http://localhost:5113/exams/all/${studentId}`);
+export async function GetAllExamProblems(examId){
+    const url = new URL(`http://localhost:5113/exams/${examId}/problems`);
     let fetchedData;
     const requestOptions = {
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json',
             'Authorization' : `Bearer ${accessToken}`
-        },
+        }
     };
 
     await fetch(url.href, requestOptions)
@@ -135,50 +135,28 @@ export async function GetAllExamsOfStudent(studentId){
         .then(data => fetchedData = data)
         .catch(error => console.log(error));
 
-    return fetchedData;
-}
-
-export async function GetAvailableExamsOfStudent(studentId){
-    const url = new URL(`http://localhost:5113/exams/available/${studentId}`);
-    let fetchedData;
-    const requestOptions = {
-        method: 'GET',
-        headers: {
-            'Content-Type' : 'application/json',
-            'Authorization' : `Bearer ${accessToken}`
-        },
-    };
-
-    await fetch(url.href, requestOptions)
-        .then(response => response.json())
-        .then(data => fetchedData = data)
-        .catch(error => console.log(error));
+    console.log(fetchedData);
 
     return fetchedData;
 }
 
-export async function GetUnavailableExamsOfStudent(studentId){
-    const url = new URL(`http://localhost:5113/exams/unavailable/${studentId}`);
-    let fetchedData;
-    const requestOptions = {
-        method: 'GET',
-        headers: {
-            'Content-Type' : 'application/json',
-            'Authorization' : `Bearer ${accessToken}`
-        },
-    };
 
-    await fetch(url.href, requestOptions)
-        .then(response => response.json())
-        .then(data => fetchedData = data)
-        .catch(error => console.log(error));
 
-    return fetchedData;
-}
-
-export async function CreateExamAsync(examData)
+export async function CreateProblemAsync(problemData)
 {
 
 }
+
+export async function CreateCorrectAsnwerForProblemAsync(problemAnswerOptionData)
+{
+
+}
+
+
+export async function CreateAsnwerForProblemAsync(problemAnswerOptionData)
+{
+
+}
+
 
 
