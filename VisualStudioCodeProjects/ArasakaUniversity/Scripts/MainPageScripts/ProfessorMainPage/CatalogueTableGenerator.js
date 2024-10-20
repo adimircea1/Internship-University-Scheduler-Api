@@ -207,7 +207,6 @@ async function GenerateTablePagination(numberOfEntitiesToShow, maxPages, current
     const paginationDiv = document.createElement('div');
     paginationDiv.classList.add('pagination-div');
     
-    // Create previous page arrow
     const prevPageArrow = document.createElement("i");
     prevPageArrow.classList.add("fas", "fa-arrow-left", "pagination-arrow");
     prevPageArrow.addEventListener('click', async () => {
@@ -218,7 +217,6 @@ async function GenerateTablePagination(numberOfEntitiesToShow, maxPages, current
         }
     });
 
-    // Create next page arrow
     const nextPageArrow = document.createElement("i");
     nextPageArrow.classList.add("fas", "fa-arrow-right", "pagination-arrow");
     nextPageArrow.addEventListener('click', async () => {

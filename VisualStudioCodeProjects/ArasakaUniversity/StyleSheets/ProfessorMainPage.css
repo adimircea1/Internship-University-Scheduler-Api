@@ -5,6 +5,9 @@
     box-shadow: 0 0px 6px rgba(0, 0, 0, 0.3); 
     transition: opacity 0.3s ease-in-out; 
     border-radius: 10px;
+    max-height: 25rem;
+    height: 25rem;
+    overflow-y: scroll;
 }
 
 .loaded {

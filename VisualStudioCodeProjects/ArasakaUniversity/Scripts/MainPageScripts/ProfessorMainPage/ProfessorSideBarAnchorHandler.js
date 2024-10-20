@@ -60,4 +60,5 @@ menuContent.forEach(element => {
                 break;
         }
     });
+
 });

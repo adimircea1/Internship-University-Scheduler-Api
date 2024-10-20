@@ -8,4 +8,5 @@ public class ExamDto
     public DateTime AvailableUntil { get; set; }
     public int ExamDuration { get; set; }
     public int? FinalGrade { get; set; }
+    public bool PartialGradingAllowed { get; set; } = false;
 }

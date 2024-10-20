@@ -176,9 +176,37 @@ export async function GetUnavailableExamsOfStudent(studentId){
     return fetchedData;
 }
 
-export async function CreateExamAsync(examData)
+export async function AddExamAsync(examData)
 {
+    const response = await fetch('http://localhost:5113/exams/exam', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(examData)
+    });
 
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Failed to add exams: ${errorMessage}`);
+    }
+}
+
+export async function DeleteExamByIdAsync(examId)
+{
+    const response = await fetch(`http://localhost:5113/exams/${examId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${accessToken}`
+        }
+    });
+
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Failed to delete exams: ${errorMessage}`);
+    }
 }
 
 

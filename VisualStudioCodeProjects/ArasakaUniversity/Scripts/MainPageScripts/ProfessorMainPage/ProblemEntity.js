@@ -140,12 +140,37 @@ export async function GetAllExamProblems(examId){
     return fetchedData;
 }
 
+export async function AddProblemAsync(problemData) {
+    const response = await fetch('http://localhost:5113/problems/problem', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(problemData)
+    });
 
-
-export async function CreateProblemAsync(problemData)
-{
-
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Failed to add problems: ${errorMessage}`);
+    }
 }
+
+export async function DeleteProblemById(problemId) {
+    const response = await fetch(`http://localhost:5113/problems/${problemId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${accessToken}`
+        }
+    });
+
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Failed to add problems: ${errorMessage}`);
+    }
+}
+
 
 export async function CreateCorrectAsnwerForProblemAsync(problemAnswerOptionData)
 {
