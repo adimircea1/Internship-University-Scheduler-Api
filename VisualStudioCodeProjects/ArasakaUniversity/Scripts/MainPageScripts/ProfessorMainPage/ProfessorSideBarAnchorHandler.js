@@ -1,4 +1,6 @@
 import { RemoveTokenAsync } from "../../Logout.js";
+import { GenerateProfessorProfileAsync } from "./ProfessorProfileSection.js";
+
 
 const sideBar = document.getElementById('sidebar');
 const menu = sideBar.querySelector('#menu');
@@ -36,8 +38,9 @@ menuContent.forEach(element => {
                 break;
             case "Profile" :
                 pageContent.innerHTML = '';
-                
+                await GenerateProfessorProfileAsync();
                 break;
+                
             case "Logout" :
                 pageContent.innerHTML = '';
                 await RemoveTokenAsync();

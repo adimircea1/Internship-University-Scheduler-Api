@@ -43,7 +43,15 @@ public class ProfessorController : ControllerBase
             .ToList());
         return Ok("Successfully added a list of professors!");
     }
-
+    
+    [WithClaimsAuthorization("Professor", "Admin")]
+    [HttpGet("get-by-email")]
+    public async Task<ActionResult<ProfessorDto>> GetProfessorByEmailAsync([FromQuery] string email)
+    {
+        var existingProfessor = await _professorService.GetProfessorByQueryAsync(p => p.Email == email);
+        return Ok(_mapper.Map<ProfessorDto>(existingProfessor));
+    }
+    
     [WithClaimsAuthorization("Admin")]
     [HttpGet("{id:int}")]
     public async Task<ActionResult<ProfessorDto>> GetProfessorByIdAsync([FromRoute] int id)

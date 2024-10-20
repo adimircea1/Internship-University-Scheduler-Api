@@ -232,6 +232,7 @@ export async function UpdateStudentById(updatedData, Id){
 }
 
 export async function GetStudentByEmailAsync(email){
+    console.log(email);
     const url = new URL(`http://localhost:5150/students/get-by-email`);
     let fetchedData;
     const requestOptions = {
@@ -244,9 +245,14 @@ export async function GetStudentByEmailAsync(email){
     };
 
     await fetch(url, requestOptions)
-    .then(response => response.json())
+    .then(async response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => fetchedData = data)
-    .catch(error => console.log(error));
+    .catch(error => console.log("Fetch error:", error));
 
     return fetchedData;
 }

@@ -73,7 +73,7 @@ public class UserService : IUserService
         var numberOfEntitiesToSkip = (paginationSetting.PageNumber - 1) * paginationSetting.PageSize;
         var orderByExpression = _expressionBuilder.BuildOrderByExpression<User>(paginationSetting.OrderBy);
         var feedback = await _userRepository.GetOrderedEntitiesAsync(numberOfEntitiesToSkip, paginationSetting.PageSize, orderByExpression, paginationSetting.OrderDirection);
-        RemoveCurrentAdminUserFromSearch(feedback);
+        feedback = RemoveCurrentAdminUserFromSearch(feedback);
         return feedback;
     }
 
@@ -83,7 +83,7 @@ public class UserService : IUserService
         var numberOfEntitiesToSkip = (filteringSettings.PageNumber - 1) * filteringSettings.PageSize;
         var userFilter = _serviceProvider.GetRequiredService<IFilter<User>>();
         var feedback = await _userRepository.GetFilteredEntitiesAsync(numberOfEntitiesToSkip, filteringSettings.PageSize, filteringSettings.FilterBy, userFilter);
-        RemoveCurrentAdminUserFromSearch(feedback);
+        feedback = RemoveCurrentAdminUserFromSearch(feedback);
         return feedback;
     }
 
@@ -94,7 +94,7 @@ public class UserService : IUserService
         var orderByExpression = _expressionBuilder.BuildOrderByExpression<User>(settings.OrderBy);
         var userFilter = _serviceProvider.GetRequiredService<IFilter<User>>();
         var feedback = await _userRepository.GetFilteredAndOrderedEntitiesAsync(numberOfEntitiesToSkip, settings.PageSize, orderByExpression, settings.OrderDirection, settings.FilterBy, userFilter);
-        RemoveCurrentAdminUserFromSearch(feedback);
+        feedback = RemoveCurrentAdminUserFromSearch(feedback);
         return feedback;
     }
 
@@ -213,20 +213,18 @@ public class UserService : IUserService
         _userRepository.DeleteAllEntities();
     }
 
-    private void RemoveCurrentAdminUserFromSearch(DatabaseFeedback<User> feedback)
+    private DatabaseFeedback<User> RemoveCurrentAdminUserFromSearch(DatabaseFeedback<User> feedback)
     {
-        var currentUserRole = _httpContextAccessor.GetUserClaimRole();
         var currentUserId = _httpContextAccessor.GetUserIdClaim();
-
-        if (currentUserRole == "Admin")
-        {
-            var user = feedback.Entities.FirstOrDefault(user => user.Id == currentUserId);
+        
+        var user = feedback.Entities.FirstOrDefault(user => user.Id == currentUserId);
             
-            if (feedback.NumberOfEntities > 0)
-            {
-                feedback.NumberOfEntities -= 1;
-                feedback.Entities.Remove(user!);
-            }
+        if (user is not null)
+        {
+            feedback.NumberOfEntities -= 1;
+            feedback.Entities.Remove(user!);
         }
+
+        return feedback;
     }
 }

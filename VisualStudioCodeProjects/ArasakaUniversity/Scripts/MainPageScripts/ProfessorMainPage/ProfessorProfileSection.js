@@ -1,10 +1,13 @@
-import { GetCurrentProfessor } from "../AdminMainPage/ProfessorEntity.js";
+import { GetCurrentProfessorByEmail } from "../AdminMainPage/ProfessorEntity.js";
 import { GetUserByIdClaimAsync } from "../AdminMainPage/UserEntity.js";
 
 const accessToken = localStorage.getItem("AccessToken");
 
 export async function GenerateProfessorProfileAsync(){
-    const professorFetchData = await GetCurrentProfessor();
+    const professorEmail = document.querySelector('.upperBarEmail').textContent;
+    const professorFetchData = await GetCurrentProfessorByEmail(professorEmail.toString());
+
+    console.log(professorFetchData);
 
     const pageContent = document.querySelector('.page-content')
 
@@ -29,6 +32,8 @@ export async function GenerateProfessorProfileAsync(){
 
     const professorInfoHeading = document.createElement("h2");
     professorInfoHeading.textContent = "Professor info";
+
+    console.log(professorFetchData);
 
     const professorData = [
         { label: "First Name:", value: professorFetchData.firstName },

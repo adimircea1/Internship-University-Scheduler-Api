@@ -38,14 +38,39 @@ export async function GetCurrentProfessor(){
         headers: {
             'Content-Type' : 'application/json',
             'Authorization' : `Bearer ${accessToken}`
-        },
-        body: JSON.stringify(paginationSettings)
+        }
     };
 
     await fetch(url.href, requestOptions)
         .then(response => response.json())
         .then(data => fetchedData = data)
         .catch(error => console.log(error));
+
+    return fetchedData;
+}
+
+export async function GetCurrentProfessorByEmail(email){
+    const url = new URL(`http://localhost:5150/professors/get-by-email?email=${(email)}`);
+
+    let fetchedData;
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization' : `Bearer ${accessToken}`
+        }
+    };
+
+    await fetch(url, requestOptions)
+    .then(async response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const json = await response.json();
+        return json;
+    })
+    .then(data => fetchedData = data)
+    .catch(error => console.log("Error:", error));
 
     return fetchedData;
 }
