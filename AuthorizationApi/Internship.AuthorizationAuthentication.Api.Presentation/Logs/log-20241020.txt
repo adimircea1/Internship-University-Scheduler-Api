@@ -1,0 +1,1 @@
+2024-10-20T00:09:18.5103856+03:00  [WRN] Overriding address(es) '"http://localhost:5238"'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead. (88de3686)

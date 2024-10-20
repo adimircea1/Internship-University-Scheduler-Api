@@ -1,0 +1,21 @@
+Admin:
+
+{
+  "userName": "admin",
+  "email": "admin@admin.com",
+  "personalEmail": "personal@personal.com",
+  "password": "Test123!",
+  "role": "Admin"
+}
+
+Student:
+
+cremene.mi77ed
+gyzJjaP9QGe
+adimircea04@gmail.com
+
+Professor:
+
+cremene.mi7e42
+KLL2qGVr
+mirceaadi0104@gmail.com

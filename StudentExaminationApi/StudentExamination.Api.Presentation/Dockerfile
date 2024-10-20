@@ -1,7 +1,7 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["StudentExamination.Api.Presentation/StudentExamination.Api.Presentation.csproj", "StudentExamination.Api.Presentation/"]
 COPY ["StudentExamination.Api.Core/StudentExamination.Api.Core.csproj", "StudentExamination.Api.Core/"]
@@ -9,10 +9,11 @@ COPY ["StudentExamination.Api.Infrastructure/StudentExamination.Api.Infrastructu
 RUN dotnet restore "StudentExamination.Api.Presentation/StudentExamination.Api.Presentation.csproj"
 COPY . .
 WORKDIR "/src/StudentExamination.Api.Presentation"
-RUN dotnet build "StudentExamination.Api.Presentation.csproj" -c Release -o /app/build
+RUN dotnet build "StudentExamination.Api.Presentation.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "StudentExamination.Api.Presentation.csproj" -c Release -o /app/publish /p:UseAppHost=false
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "StudentExamination.Api.Presentation.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

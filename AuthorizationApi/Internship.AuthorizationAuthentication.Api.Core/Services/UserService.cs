@@ -72,7 +72,9 @@ public class UserService : IUserService
         _logger.LogInformation($"\n{DateTime.Now} ---> An attempt of retrieving a list of ordered users by {paginationSetting.OrderBy} property has been made!");
         var numberOfEntitiesToSkip = (paginationSetting.PageNumber - 1) * paginationSetting.PageSize;
         var orderByExpression = _expressionBuilder.BuildOrderByExpression<User>(paginationSetting.OrderBy);
-        return await _userRepository.GetOrderedEntitiesAsync(numberOfEntitiesToSkip, paginationSetting.PageSize, orderByExpression, paginationSetting.OrderDirection);
+        var feedback = await _userRepository.GetOrderedEntitiesAsync(numberOfEntitiesToSkip, paginationSetting.PageSize, orderByExpression, paginationSetting.OrderDirection);
+        RemoveCurrentAdminUserFromSearch(feedback);
+        return feedback;
     }
 
     public async Task<DatabaseFeedback<User>> GetFilteredUsersAsync(FilteringSettings filteringSettings)
@@ -80,7 +82,9 @@ public class UserService : IUserService
         _logger.LogInformation($"\n{DateTime.Now} ---> An attempt of retrieving a list of filtered users has been made!");
         var numberOfEntitiesToSkip = (filteringSettings.PageNumber - 1) * filteringSettings.PageSize;
         var userFilter = _serviceProvider.GetRequiredService<IFilter<User>>();
-        return await _userRepository.GetFilteredEntitiesAsync(numberOfEntitiesToSkip, filteringSettings.PageSize, filteringSettings.FilterBy, userFilter);
+        var feedback = await _userRepository.GetFilteredEntitiesAsync(numberOfEntitiesToSkip, filteringSettings.PageSize, filteringSettings.FilterBy, userFilter);
+        RemoveCurrentAdminUserFromSearch(feedback);
+        return feedback;
     }
 
     public async Task<DatabaseFeedback<User>> GetFilteredAndOrderedUsersAsync(FilterOrderSettings settings)
@@ -89,7 +93,9 @@ public class UserService : IUserService
         var numberOfEntitiesToSkip = (settings.PageNumber - 1) * settings.PageSize;
         var orderByExpression = _expressionBuilder.BuildOrderByExpression<User>(settings.OrderBy);
         var userFilter = _serviceProvider.GetRequiredService<IFilter<User>>();
-        return await _userRepository.GetFilteredAndOrderedEntitiesAsync(numberOfEntitiesToSkip, settings.PageSize, orderByExpression, settings.OrderDirection, settings.FilterBy, userFilter);
+        var feedback = await _userRepository.GetFilteredAndOrderedEntitiesAsync(numberOfEntitiesToSkip, settings.PageSize, orderByExpression, settings.OrderDirection, settings.FilterBy, userFilter);
+        RemoveCurrentAdminUserFromSearch(feedback);
+        return feedback;
     }
 
     public async Task<User> GetUserByIdClaimAsync()
@@ -205,5 +211,22 @@ public class UserService : IUserService
     public void QueueDeleteAllUsers()
     {
         _userRepository.DeleteAllEntities();
+    }
+
+    private void RemoveCurrentAdminUserFromSearch(DatabaseFeedback<User> feedback)
+    {
+        var currentUserRole = _httpContextAccessor.GetUserClaimRole();
+        var currentUserId = _httpContextAccessor.GetUserIdClaim();
+
+        if (currentUserRole == "Admin")
+        {
+            var user = feedback.Entities.FirstOrDefault(user => user.Id == currentUserId);
+            
+            if (feedback.NumberOfEntities > 0)
+            {
+                feedback.NumberOfEntities -= 1;
+                feedback.Entities.Remove(user!);
+            }
+        }
     }
 }

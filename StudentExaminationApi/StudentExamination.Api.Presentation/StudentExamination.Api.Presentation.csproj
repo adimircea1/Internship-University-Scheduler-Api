@@ -37,7 +37,6 @@
       <_ContentIncludedByDefault Remove="wwwroot\ExamTemplates\ExamTemplate.html" />
     </ItemGroup>
 
-
     <ItemGroup>
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
