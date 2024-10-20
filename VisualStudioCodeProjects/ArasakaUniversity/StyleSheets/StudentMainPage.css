@@ -1,4 +1,3 @@
-/* Exam page generator styles */
 .exams-div {
     width: 53%;
     padding: 10px 20px;
@@ -109,7 +108,6 @@
     cursor: pointer;
 }
 
-/* pagination div css */
 .pagination-div {
     display: flex;
     justify-content: center;
@@ -149,7 +147,6 @@
     border-color: #3c2ebe;
 }
 
-/* Exam table menu */
 .exam-table-menu{
     width: 100%;
     display: flex;
@@ -158,8 +155,6 @@
     margin-top: 2.5rem;
 }
 
-/* Grades page */
-/* Style for the main grade table container */
 .grade-table-container {
     margin: 20px;
     padding: 20px;
@@ -168,7 +163,6 @@
     margin: auto;
 }
 
-/* Style for the grade table menu container */
 .grade-table-menu-container {
     display: flex;
     align-items: center;
@@ -177,7 +171,6 @@
     margin-top: 1rem;
 }
 
-/* Style for the order buttons */
 .order-grades-button {
     background-color: #3c2ebe;
     color: #fff;
@@ -189,7 +182,6 @@
     transition: background-color 0.2s;
 }
 
-/* Style for the filtering icon */
 .grade-filter-icon {
     color: #999;
     margin-left: 10px;
@@ -201,13 +193,11 @@
     color:#3c2ebe;
 }
 
-/* Style for the search box container */
 .search-box-container {
     margin-left:36.5rem;
     position: relative;
 }
 
-/* Style for the search box */
 .filter-grade-by-text-input{
     padding: 8px 10px;
     border: 1px solid #ccc;
@@ -215,14 +205,12 @@
     width: auto;
 }
 
-/* Style for the grade table divider */
 .grade-table-divider {
     margin: 0.5rem 0;
     border: none;
     border-top: 1px solid #ccc;
 }
 
-/* Style for the grade table inner container */
 .grade-table-inner-container {
    height: auto;
 }
@@ -276,7 +264,6 @@
 }
 
 
-/* Attendance table */
 .table-content {
     margin-top: 3rem;
     margin-left: 3.5rem;
@@ -301,7 +288,6 @@
     max-height: 65vh;
 }
 
-/* table head */
 .entity-table-head {
     color:   #333333;
     position: sticky; 
@@ -318,11 +304,10 @@
     padding: 8px;   
 }
 
-/* Style for filtering icon */
 .attendance-filter-icon {
     position: relative;
     left: 16.5rem;
-    color: #999; /* Icon color */
+    color: #999; 
     cursor: pointer;
     text-align: center;
     font-size: 16px;
@@ -331,12 +316,10 @@
     padding: 8px;
 }
 
-/* Change icon color on hover */
 .attendance-filter-iconn:hover {
-    color: #333; /* Hover color */
+    color: #333; 
 }
 
-/* Style for table body */
 .entity-table-body {
     border-top: 1px solid #ddd;
     font-size: 16px;
@@ -348,19 +331,16 @@
     height: 3rem;
 }
 
-/* Hover effect for rows */
 .entity-table-body tr:hover {
     background-color: #e0e0e0;
 }
 
-/* Style for table cells */
 
 .icons-row{
     text-align: center;
     color: rgb(143, 143, 143);
 }
 
-/* Style for search boxes */
 .search-row td {
     background-color: #f2f2f2; 
 }

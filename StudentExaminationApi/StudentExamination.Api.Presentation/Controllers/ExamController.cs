@@ -34,6 +34,13 @@ public class ExamController : ControllerBase
         return Ok($"Successfully graded exam!");
     }
 
+    [WithClaimsAuthorization("Admin", "Professor")]
+    [HttpGet("{examId:int}/problems")]
+    public async Task<List<Problem>> GetAllExamProblemsAsync([FromRoute] int examId)
+    {
+        return await _examService.GetAllProblemsFromExamAsync(examId);
+    }
+    
     [Authorize]
     [HttpGet("generate/{examId:int}/{studentId:int}")]
     public async Task<ActionResult<object>> GenerateExamAsync([FromRoute] int examId, [FromRoute] int studentId)

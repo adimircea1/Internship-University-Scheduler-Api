@@ -111,19 +111,16 @@ button:hover {
     align-items: center;
 }
 
-/* Style for the role selection container */
 .role-selection-container {
     margin-bottom: 20px;
     text-align: left;
 }
 
-/* Style for the label */
 .role-selection-container label {
     display: block;
     margin-bottom: 5px;
 }
 
-/* Style for the role selection dropdown */
 .role-select {
     padding: 8px;
     font-size: 16px;
@@ -133,12 +130,10 @@ button:hover {
     box-sizing: border-box;
 }
 
-/* Style for the specialty group */
 .speciality-group {
     width: 100%;
 }
 
-/* Style for select inputs */
 .split-input select {
     padding: 8px;
     font-size: 16px;

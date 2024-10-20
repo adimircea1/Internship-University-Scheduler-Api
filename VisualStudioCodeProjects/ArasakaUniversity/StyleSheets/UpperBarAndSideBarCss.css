@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Horizontally center-align content */
+    justify-content: center; 
     min-height: 100vh;
     background-color: #f2f2f2;
     position: relative;
@@ -24,7 +24,7 @@ body {
 }
 
 .main-page-content {
-    margin-left: 5.48rem; /* Adjust for the sidebar width */
+    margin-left: 5.48rem; 
     width: 100%;
 }
 
@@ -63,8 +63,8 @@ body {
 }
 
 #sidebar .logoContent{
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    margin: 0; 
+    padding: 0;
 }
 
 .divider{
@@ -79,7 +79,7 @@ body {
     flex-direction: column;
     align-items: column;
     padding: 1rem;
-    flex: 1; /* Take up available space */
+    flex: 1; 
 }
 
 #sidebar ul li {
@@ -87,7 +87,7 @@ body {
 }
 
 #sidebar ul li:last-child {
-    margin-top: auto; /* Push to the bottom */
+    margin-top: auto; 
 }
 
 #sidebar ul li a {
@@ -139,8 +139,8 @@ body {
 }
 
 #upperBar .upperBarContent {
-    display: flex; /* Use flex to align items on the same line */
-    align-items: center; /* Center items along the cross axis */
+    display: flex; 
+    align-items: center;
     flex-direction: row;
 }
 

@@ -7,8 +7,8 @@
     padding: 2rem;
     overflow: hidden;
     height: 30rem;
-    background-color: #fff; /* Light background color */
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Subtle box-shadow */
+    background-color: #fff; 
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); 
     width: 50%;
     margin: auto;
 }
@@ -19,7 +19,11 @@
 }
 
 .profile-info .student-info strong {
-    margin-right: 0.5rem; /* Adjust the spacing as needed */
+    margin-right: 0.5rem; 
+}
+
+.profile-info .professor-info strong {
+    margin-right: 0.5rem; 
 }
 
 .profile-header-container{
@@ -29,7 +33,7 @@
 }
 
 .profile-info h2 {
-    margin-bottom: 1.5rem; /* More space below headings */
+    margin-bottom: 1.5rem; 
     font-weight: bold;
     font-size: 1.5rem;
 
@@ -38,7 +42,13 @@
 .profile-info .student-info {
     margin-bottom: 1rem;
     font-size: 1.1rem;
-    color: #666; /* Slightly muted text color */
+    color: #666; 
+}
+
+.profile-info .professor-info {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #666; 
 }
 
 .change-password {
@@ -49,7 +59,7 @@
 
 .change-password h2 {
     margin-top: 2rem;
-    margin-bottom: 1rem; /* More space below headings */
+    margin-bottom: 1rem;
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -57,8 +67,8 @@
 .change-password input {
     height: 2rem;
     border: 1px solid #ccc;
-    margin-bottom: 0.75rem; /* More space between inputs */
-    padding: 0.5rem; /* Adjust input padding */
+    margin-bottom: 0.75rem;
+    padding: 0.5rem; 
     border-radius: 5px;
     width: 95%;
 }
@@ -71,7 +81,7 @@
 .profile-divider {
     margin-top: 1rem; 
     margin-bottom: 1.5rem; 
-    border-bottom: 1px solid #ccc; /* Thicker divider */
+    border-bottom: 1px solid #ccc; 
     width: 50%;
 }
 

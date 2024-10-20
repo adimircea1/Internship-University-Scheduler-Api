@@ -132,7 +132,6 @@ input[type='text']:focus {
     box-shadow: 0 0 5px #333333;
 }
 
-/* Style for the label and input elements */
 label {
     display: block;
 }
@@ -145,7 +144,7 @@ label {
 
 
 .answerText {
-    width: 100%; /* Expand the text input to fill the available width */
+    width: 100%; 
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
