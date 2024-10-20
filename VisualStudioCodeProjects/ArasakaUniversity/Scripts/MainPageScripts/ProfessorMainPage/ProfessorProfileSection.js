@@ -1,20 +1,10 @@
-import { GetStudentByEmailAsync } from "../AdminMainPage/StudentEntity.js";
+import { GetCurrentProfessor } from "../AdminMainPage/ProfessorEntity.js";
 import { GetUserByIdClaimAsync } from "../AdminMainPage/UserEntity.js";
 
 const accessToken = localStorage.getItem("AccessToken");
 
-export async function GenerateProfileAsync(){
-    const studentEmail = document.querySelector('.upperBarEmail').textContent;
-    const studentFetchData = await GetStudentByEmailAsync(studentEmail);
-    let specialisation;
-    let specialisationWithSpaces;
-    if(studentFetchData.universityGroupId !== null){
-        specialisation = await GetStudentSpecialisationAsync(studentFetchData.universityGroupId);
-        specialisationWithSpaces = camelCaseToWords(specialisation);
-    } else {
-        specialisation = null;
-        specialisationWithSpaces = null;
-    }
+export async function GenerateProfessorProfileAsync(){
+    const professorFetchData = await GetCurrentProfessor();
 
     const pageContent = document.querySelector('.page-content')
 
@@ -37,25 +27,23 @@ export async function GenerateProfileAsync(){
     const profileInfo = document.createElement("div");
     profileInfo.className = "profile-info";
 
-    const studentInfoHeading = document.createElement("h2");
-    studentInfoHeading.textContent = "Student info";
+    const professorInfoHeading = document.createElement("h2");
+    professorInfoHeading.textContent = "Professor info";
 
-    const studentData = [
-        { label: "First Name:", value: studentFetchData.firstName },
-        { label: "Last Name:", value: studentFetchData.lastName },
-        { label: "Phone Number:", value: studentFetchData.phoneNumber },
-        { label: "Study Year:", value: studentFetchData.studyYear },
-        { label: "Specialization:", value: (specialisationWithSpaces === null? "Not in a group" : specialisationWithSpaces) },
-        { label: "Birthdate:", value: studentFetchData.birthdayDate }
+    const professorData = [
+        { label: "First Name:", value: professorFetchData.firstName },
+        { label: "Last Name:", value: professorFetchData.lastName },
+        { label: "Phone Number:", value: professorFetchData.phoneNumber },
+        { label: "Birthdate:", value: professorFetchData.birthdayDate }
     ];
 
-    studentData.forEach(data => {
+    professorData.forEach(data => {
         const infoParagraph = document.createElement("p");
-        infoParagraph.className = "student-info";
+        infoParagraph.className = "professor-info";
         const strongElement = document.createElement("strong");
         strongElement.textContent = data.label;
         const spanElement = document.createElement("span");
-        spanElement.className = "student-info-data";
+        spanElement.className = "professor-info-data";
         spanElement.textContent = data.value;
         infoParagraph.appendChild(strongElement);
         infoParagraph.appendChild(spanElement);
@@ -86,7 +74,6 @@ export async function GenerateProfileAsync(){
     confirmNewPassword.placeholder = "Confirm password...";
     confirmNewPassword.required = true;
 
-
     const changePasswordButton = document.createElement("button");
     changePasswordButton.className = "change-password-btn";
     changePasswordButton.textContent = "Submit";
@@ -94,17 +81,17 @@ export async function GenerateProfileAsync(){
         const oldPassword = oldPasswordInput.value;
         const newPassword = newPasswordInput.value;
         const confirmPassword = confirmNewPassword.value;
-    
-        if (oldPassword.trim() === '' || newPassword.trim() === ''|| confirmPassword.trim() === '' ) {
-            alert("Before submiting, all fields must be filled!");
+
+        if (oldPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
+            alert("Before submitting, all fields must be filled!");
             oldPasswordInput.value = '';
             newPasswordInput.value = '';
             confirmNewPassword.value = '';
-            return; 
+            return;
         }
 
-        if(newPassword.trim() !== confirmPassword.trim()){
-            alert("The new password and confirm password does not match!");
+        if (newPassword.trim() !== confirmPassword.trim()) {
+            alert("The new password and confirm password do not match!");
             oldPasswordInput.value = '';
             newPasswordInput.value = '';
             confirmNewPassword.value = '';
@@ -131,34 +118,6 @@ export async function GenerateProfileAsync(){
     pageContent.appendChild(profileDataContainer);
 }
 
-async function GetStudentSpecialisationAsync(universityGroupId){
-    const url = new URL(`http://localhost:5150/groups/${universityGroupId}`);
-
-    const requestOptions = {
-        method: "GET",
-        headers: {
-            'Content-Type' : 'application/json',
-            'Authorization' : `Bearer ${accessToken}`
-        }
-    };
-
-    let fetchedData;
-
-    await fetch(url.href, requestOptions)
-    .then(response => {
-        if(response.ok){
-            return response.json();
-        } else {
-            const errorResponse = response.text();
-            throw new Error(errorResponse);
-        }
-    })
-    .then(data => fetchedData = data)
-    .catch(error => console.log(error));
-
-    return fetchedData.specialization;
-}
-
 async function ChangePasswordAsync(newPassword, oldPassword, userId){
     const url = new URL(`http://localhost:5238/users/${userId}/new-password`);
 
@@ -179,10 +138,10 @@ async function ChangePasswordAsync(newPassword, oldPassword, userId){
     await fetch(url.href, requestOptions)  
     .then(async response => {
         if(response.ok){
-            alert("Password change successfull");
+            alert("Password change successful");
             return response.text();
         } else {
-            const error = await response.json()
+            const error = await response.json();
             const errors = error.errors;
             if(errors !== undefined){
                 throw Error(response.status + " " + response.statusText + " --> " + errors);
@@ -194,7 +153,7 @@ async function ChangePasswordAsync(newPassword, oldPassword, userId){
     .then(data => data)
     .catch(error => {
         alert(error);
-    }); 
+    });
 }
 
 function camelCaseToWords(camelCase) {

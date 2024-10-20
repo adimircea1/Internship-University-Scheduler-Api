@@ -116,6 +116,7 @@ async function HandleExamSubmit(){
 
     await SendAnswersAsync(answers);
     let examFeedback = await GetExamFeedbackAsync();
+
     await HighlightAnswersAsync(examFeedback.correctAnswers);
 
     const goBackBtn = document.getElementById('goBackBtn');
@@ -137,6 +138,7 @@ async function HandleExamSubmit(){
 
 async function GetExamFeedbackAsync() {
     const exam = await GetExamByIdAsync(examId);
+
     const problems = examData.problems;
     
     let correctAnswers = {};
@@ -152,8 +154,6 @@ async function GetExamFeedbackAsync() {
             correctAnswers[problem.id].push(correctAnswerOfProblem.answer);
         }
     }
-
-    console.log(correctAnswers);
 
     return {
         finalGrade: exam.finalGrade,
@@ -237,7 +237,6 @@ async function HighlightAnswersAsync(correctAnswersFromServer) {
         else if(typeOfProblem === "MultipleAnswer"){
             const checkedAnswers = problem.querySelectorAll('input[type="checkbox"]:checked');
             const correctAnswers = correctAnswersFromServer[problemId];
-            console.log(correctAnswers);
 
             let wrongAnswers = false;
             let numberOfCorrectAnswersChecked = 0;
@@ -268,7 +267,6 @@ async function HighlightAnswersAsync(correctAnswersFromServer) {
                 }
 
                 let pointsPerCorrectAnswer = parseFloat(maxPoints) / numberOfCorrectAnswers;
-                console.log(Math.abs(pointsPerCorrectAnswer * (numberOfCorrectAnswersChecked - numberOfWrongAnswersChecked)));
                 problemPoints.textContent = `Earned ${Math.abs(pointsPerCorrectAnswer * (numberOfCorrectAnswersChecked - numberOfWrongAnswersChecked))} / ${maxPoints}`;
             } else {
                 problem.style.borderColor = 'green';
@@ -302,10 +300,11 @@ async function GenerateProblemsAsync(){
     let problemHtmlContent = '';
 
     for(const problem of examData.problems){
+        problem.text = problem.text.replace(/<<(.*?)>>/g, '"$1"');
+
         problemHtmlContent += `<div class='problem' data-problem-id='${problem.id}' data-problem-type='${problem.problemType}'><p class='problemText'>${problem.text}</p>`;
 
         var answerOptions = await GetAnswerOptionsOfProblemAsync(problem.id);
-        console.log(problem.problemType);
 
         switch (problem.problemType) {
             case 'SingleAnswer':
@@ -330,7 +329,6 @@ async function GenerateProblemsAsync(){
 function GenerateProblemsWithSingleAnswerOption(answerOptions) {
     let answerHtml = '';
     for (const answer of answerOptions) {
-        console.log(":" + answer);
         answerHtml += 
         `<label>
         <input class='answerRadio' name='${answer.problemId}' type='radio' value='${answer.answer}' />

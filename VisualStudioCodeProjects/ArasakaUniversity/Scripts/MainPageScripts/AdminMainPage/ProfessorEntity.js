@@ -30,6 +30,26 @@ export async function FetchProfessorDataAsync(maxEntities, currentPageNumber, or
     return fetchedData;
 }
 
+export async function GetCurrentProfessor(){
+    const url = new URL("http://localhost:5150/professors/professor");
+    let fetchedData;
+    const requestOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization' : `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(paginationSettings)
+    };
+
+    await fetch(url.href, requestOptions)
+        .then(response => response.json())
+        .then(data => fetchedData = data)
+        .catch(error => console.log(error));
+
+    return fetchedData;
+}
+
 export async function AddProfessorFromRegisterRequestAsync(data){
     const url = new URL(`http://localhost:5150/professors/professor`);
 

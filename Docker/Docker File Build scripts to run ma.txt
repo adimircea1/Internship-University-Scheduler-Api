@@ -1,0 +1,9 @@
+Docker File Build scripts to run manually on each API
+
+docker build -f Internship.AuthorizationAuthentication.Api.Presentation/Dockerfile --progress=plain --no-cache -t authorization-authentication-image:latest .
+
+docker build -f Internship.UniversityScheduler.Api.Presentation/Dockerfile --progress=plain --no-cache -t university-scheduler-image:latest .
+
+docker build -f EmailVerificationApi.Presentation/Dockerfile --progress=plain --no-cache -t email-verification-image:latest .
+
+docker build -f StudentExamination.Api.Presentation/Dockerfile --progress=plain --no-cache -t student-examination-image:latest .
