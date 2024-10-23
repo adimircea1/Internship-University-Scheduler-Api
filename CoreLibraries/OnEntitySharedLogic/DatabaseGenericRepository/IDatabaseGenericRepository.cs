@@ -4,7 +4,7 @@ using OnEntitySharedLogic.Utils;
 
 namespace OnEntitySharedLogic.DatabaseGenericRepository;
 
-public interface IDatabaseGenericRepository<TEntity>
+public interface IDatabaseGenericRepository<TEntity> where TEntity : IEntity
 {
     public Task AddEntityAsync(TEntity entity);
     public Task AddEntitiesAsync(IEnumerable<TEntity> entities);
@@ -15,6 +15,7 @@ public interface IDatabaseGenericRepository<TEntity>
     public Task<DatabaseFeedback<TEntity>> GetFilteredEntitiesAsync(int numberToSkip, int numberToTake, Dictionary<string, string> filterBy, IFilter<TEntity> entityFilter);
     public Task<DatabaseFeedback<TEntity>> GetFilteredAndOrderedEntitiesAsync(int numberToSkip, int numberToTake, Expression<Func<TEntity, object>>? queryExpression, OrderByDirection direction, 
         Dictionary<string, string> filterBy,  IFilter<TEntity> entityFilter);
+    public Task<DatabaseFeedback<TEntity>> SearchEntitiesAsync(FilterObject<TEntity> filterObject, PaginationObject<TEntity>? paginationSettings);
     public Task<int> GetNumberOfEntitiesFromDatabase();
     public void DeleteEntity(TEntity entity);
     public void DeleteAllEntities();

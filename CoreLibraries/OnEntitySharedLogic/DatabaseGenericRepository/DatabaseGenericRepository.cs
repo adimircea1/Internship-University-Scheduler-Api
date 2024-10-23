@@ -6,7 +6,7 @@ using OnEntitySharedLogic.Utils;
 
 namespace OnEntitySharedLogic.DatabaseGenericRepository;
 
-public class DatabaseGenericRepository<TEntity> : IDatabaseGenericRepository<TEntity> where TEntity : class
+public class DatabaseGenericRepository<TEntity> : IDatabaseGenericRepository<TEntity> where TEntity : class, IEntity
 {
     private readonly IDataContext _context;
     private readonly DbSet<TEntity> _entitySet;
@@ -119,6 +119,24 @@ public class DatabaseGenericRepository<TEntity> : IDatabaseGenericRepository<TEn
             },
 
             _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+        };
+    }
+
+    public async Task<DatabaseFeedback<TEntity>> SearchEntitiesAsync(FilterObject<TEntity> filterObject, PaginationObject<TEntity>? paginationSettings)
+    {
+        var entities = filterObject.EntityFilter.Filter(_entitySet, filterObject.FilterByProperties);
+
+        if (paginationSettings is not null)
+        {
+            entities = paginationSettings.OrderDirection == OrderByDirection.Ascending 
+                ?  entities.Skip(paginationSettings.Skip).Take(paginationSettings.Take).OrderBy(paginationSettings.OrderBy)
+                :  entities.Skip(paginationSettings.Skip).Take(paginationSettings.Take).OrderByDescending(paginationSettings.OrderBy);
+        }
+
+        return new DatabaseFeedback<TEntity>
+        {
+            Entities = await entities.ToListAsync(),
+            NumberOfEntities = await entities.CountAsync()
         };
     }
 
