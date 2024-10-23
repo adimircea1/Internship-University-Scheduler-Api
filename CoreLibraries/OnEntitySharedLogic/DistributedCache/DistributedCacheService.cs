@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using OnEntitySharedLogic.Auth;
 using OnEntitySharedLogic.Utils;
 using StackExchange.Redis;
 
-namespace OnEntitySharedLogic.Auth;
+namespace OnEntitySharedLogic.DistributedCache;
 
 public class DistributedCacheService : IDistributedCacheService
 {
