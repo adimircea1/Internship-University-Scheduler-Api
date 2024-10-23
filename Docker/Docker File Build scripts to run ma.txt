@@ -1,4 +1,4 @@
-Docker File Build scripts to run manually on each API
+Docker File Build scripts to run
 
 docker build -f Internship.AuthorizationAuthentication.Api.Presentation/Dockerfile --progress=plain --no-cache -t authorization-authentication-image:latest .
 
