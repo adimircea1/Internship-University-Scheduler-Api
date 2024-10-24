@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OnEntitySharedLogic.Auth;
+using OnEntitySharedLogic.Models;
 using OnEntitySharedLogic.Utils;
 using StackExchange.Redis;
 
 namespace OnEntitySharedLogic.DistributedCache;
 
+[Registration(Type = RegistrationKind.Scoped)]
 public class DistributedCacheService : IDistributedCacheService
 {
     private readonly IDatabase _redisDb;

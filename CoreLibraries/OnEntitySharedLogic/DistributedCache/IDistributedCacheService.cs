@@ -1,6 +1,6 @@
 ﻿using OnEntitySharedLogic.Utils;
 
-namespace OnEntitySharedLogic.Auth;
+namespace OnEntitySharedLogic.DistributedCache;
 
 public interface IDistributedCacheService
 {
