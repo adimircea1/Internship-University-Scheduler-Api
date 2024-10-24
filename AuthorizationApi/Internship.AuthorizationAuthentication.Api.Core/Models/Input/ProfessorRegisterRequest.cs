@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Internship.UniversityScheduler.Library.SharedEnums;
+using OnEntitySharedLogic.Utils;
 
 namespace Internship.AuthorizationAuthentication.Api.Core.Models.Input;
 
-public class ProfessorRegisterRequest
+public class ProfessorRegisterRequest : IEntity
 {
     [Required] 
     [EmailAddress] 

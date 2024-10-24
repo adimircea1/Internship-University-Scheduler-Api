@@ -14,13 +14,16 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
         <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.0" />
         <PackageReference Include="Npgsql" Version="7.0.6" />
-        <PackageReference Include="OnEntitySharedLogic" Version="1.6.6" />
+        <PackageReference Include="OnEntitySharedLogic" Version="2.2.0" />
         <PackageReference Include="protobuf-net" Version="3.2.26" />
         <PackageReference Include="protobuf-net.Core" Version="3.2.26" />
         <PackageReference Include="protobuf-net.Grpc" Version="1.1.1" />
         <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0" />
+    </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Utils\Authenticators\" />
     </ItemGroup>
 
 

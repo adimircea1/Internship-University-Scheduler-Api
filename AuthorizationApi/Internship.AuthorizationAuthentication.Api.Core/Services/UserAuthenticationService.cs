@@ -10,7 +10,7 @@ using Internship.AuthorizationAuthentication.Api.Core.Utils.Abstractions;
 using Internship.UniversityScheduler.Library.DataContracts;
 using Internship.UniversityScheduler.Library.GrpcServiceInterfaces;
 using Microsoft.Extensions.Logging;
-using OnEntitySharedLogic.CustomExceptions;
+using OnEntitySharedLogic.Auth;
 using OnEntitySharedLogic.Extensions;
 using OnEntitySharedLogic.GRPC.Grpc_Setups;
 using OnEntitySharedLogic.Models;
@@ -22,35 +22,32 @@ namespace Internship.AuthorizationAuthentication.Api.Core.Services;
 public class UserAuthenticationService : IUserAuthenticationService
 {
     private readonly IPasswordManager _passwordManager;
-    private readonly IRefreshTokenService _refreshTokenService;
-    private readonly IRefreshTokenValidator _refreshTokenValidator;
-    private readonly IUserAuthenticator _userAuthenticator;
     private readonly IUserService _userService;
     private readonly ILogger<UserAuthenticationService> _logger;
     private readonly IStudentRegisterRequestService _studentRegisterRequestService;
     private readonly IProfessorRegisterRequestService _professorRegisterRequestService;
     private readonly IGrpcClientService _grpcClientService;
+    private readonly IAccessTokenGenerator _tokenGenerator;
+    private readonly IDistributedCacheService _distributedCacheService;
 
     public UserAuthenticationService(
         IPasswordManager passwordManager, 
-        IRefreshTokenService refreshTokenService, 
-        IRefreshTokenValidator refreshTokenValidator, 
-        IUserAuthenticator userAuthenticator, 
         IUserService userService, 
         ILogger<UserAuthenticationService> logger, 
         IStudentRegisterRequestService studentRegisterRequestService, 
         IProfessorRegisterRequestService professorRegisterRequestService, 
-        IGrpcClientService grpcClientService)
+        IGrpcClientService grpcClientService,
+        IAccessTokenGenerator tokenGenerator, 
+        IDistributedCacheService distributedCacheService)
     {
         _passwordManager = passwordManager;
-        _refreshTokenService = refreshTokenService;
-        _refreshTokenValidator = refreshTokenValidator;
-        _userAuthenticator = userAuthenticator;
         _userService = userService;
         _logger = logger;
         _studentRegisterRequestService = studentRegisterRequestService;
         _professorRegisterRequestService = professorRegisterRequestService;
         _grpcClientService = grpcClientService;
+        _tokenGenerator = tokenGenerator;
+        _distributedCacheService = distributedCacheService;
     }
 
     public async Task<string> RegisterStudentUserAsync(int studentRegisterRequestId)
@@ -122,7 +119,7 @@ public class UserAuthenticationService : IUserAuthenticationService
         return userCredentials.UserUniversityEmail;    
     }
 
-    public async Task<TokenModel> LoginUserAsync(LoginRequest request)
+    public async Task<string> LoginUserAsync(LoginRequest request)
     {
         var existingUserWithUserName = await _userService.GetUserByQueryAsync(user => user.UserName == request.Username);
         if (existingUserWithUserName is null)
@@ -135,26 +132,33 @@ public class UserAuthenticationService : IUserAuthenticationService
             throw new WrongUserCredentialsException($"Wrong password for the user with username {request.Username}!");
         }
 
-        return await _userAuthenticator.AuthenticateAsync(existingUserWithUserName);
+        var accessToken = _tokenGenerator.GenerateAccessToken(existingUserWithUserName);
+        var key = $"{existingUserWithUserName.Email}_AccessToken_{existingUserWithUserName.Id}";
+
+        try
+        {
+            await _distributedCacheService.AddAsync(key, accessToken);
+        }
+        catch (Exception)
+        {
+            // ignored
+        }
+
+        return _tokenGenerator.GenerateAccessToken(existingUserWithUserName);
     }
 
-    public async Task<TokenModel> RefreshTokenAsync(RefreshRequest request)
+    public async Task InvalidateUserTokenAsync(int userId)
     {
-        _refreshTokenValidator.Validate(request.RefreshToken);
+        var existingUser = await _userService.GetUserByIdAsync(userId);
 
-        var existingRefreshToken =
-            await _refreshTokenService.GetRefreshTokenByQuery(refreshToken =>
-                refreshToken.RefreshTokenValue == request.RefreshToken);
-
-        if (existingRefreshToken is null)
+        if (existingUser is null)
         {
-            throw new EntityNotFoundException("Couldn't find refresh token with the specified value!");
+            throw new Exception("Cannot find user");
         }
-        
-        var existingUser = await _userService.GetUserByIdAsync(existingRefreshToken.UserId);
-        await _refreshTokenService.DeleteRefreshTokenByIdAsync(existingRefreshToken.Id);
+         
+        var key = $"{existingUser.Email}_AccessToken_{existingUser.Id}";
 
-        return await _userAuthenticator.AuthenticateAsync(existingUser);
+        await _distributedCacheService.UpdateAsync(key, string.Empty);
     }
 
     public async Task LogoutUserAsync(string? userId)
@@ -163,8 +167,8 @@ public class UserAuthenticationService : IUserAuthenticationService
         {
             throw new UserClaimNotFoundException("Could not find the user id claim");
         }
-        
-        await _refreshTokenService.DeleteRefreshTokenByUserIdAsync(int.Parse(userId));
+
+        await InvalidateUserTokenAsync(int.Parse(userId));
     }
 
     private async Task SendUserCredentialsAsync(string userName, string receiverEmail, string temporaryPassword)

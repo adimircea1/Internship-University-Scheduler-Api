@@ -1,6 +1,6 @@
 namespace Internship.AuthorizationAuthentication.Api.Core.Utils.Abstractions;
 
-public interface IRefreshTokenGenerator
+public interface ITokenValidator
 {
-    public string GenerateRefreshToken();
+    public bool Validate(string refreshToken);
 }

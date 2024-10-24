@@ -1,5 +1,4 @@
 using System.Security.Claims;
-using Internship.AuthorizationAuthentication.Api.Core.Models.AuthenticationAuthorizationModels;
 using Internship.AuthorizationAuthentication.Api.Core.Models.Input;
 using Internship.AuthorizationAuthentication.Api.Core.Services.Abstractions;
 using Microsoft.AspNetCore.Authorization;
@@ -13,7 +12,6 @@ public class AuthenticationController : ControllerBase
 {
     private readonly ILogger<AuthenticationController> _logger;
     private readonly IUserAuthenticationService _userAuthenticationService;
-
 
     public AuthenticationController(
         ILogger<AuthenticationController> logger,
@@ -41,17 +39,9 @@ public class AuthenticationController : ControllerBase
 
 
     [HttpPost("login")]
-    public async Task<ActionResult<TokenModel>> LoginAsync([FromBody] LoginRequest request)
+    public async Task<ActionResult<string>> LoginAsync([FromBody] LoginRequest request)
     {
         var response = await _userAuthenticationService.LoginUserAsync(request);
-        _logger.LogInformation($"\n{DateTime.Now} ---> Successfully retrieved the user access and refresh token!");
-        return response;
-    }
-
-    [HttpPost("refresh")]
-    public async Task<ActionResult<TokenModel>> RefreshTokenAsync([FromBody] RefreshRequest request)
-    {
-        var response = await _userAuthenticationService.RefreshTokenAsync(request);
         _logger.LogInformation($"\n{DateTime.Now} ---> Successfully retrieved the user access and refresh token!");
         return response;
     }

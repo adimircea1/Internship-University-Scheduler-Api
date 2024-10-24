@@ -7,6 +7,7 @@ using Internship.AuthorizationAuthentication.Api.Core.Utils.Configuration;
 using Internship.AuthorizationAuthentication.Api.Infrastructure;
 using Internship.AuthorizationAuthentication.Api.Infrastructure.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -144,6 +145,7 @@ public class Startup
             await next();
         });
         app.UseMiddleware<CaptureRequestBodyMiddleware>();
+        app.UseMiddleware<AuthorizationMiddleware>();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseMiddleware<ExceptionHandlingMiddleware>();

@@ -10,11 +10,11 @@ using OnEntitySharedLogic.Utils;
 namespace Internship.AuthorizationAuthentication.Api.Core.Utils.TokenValidators;
 
 [Registration(Type = RegistrationKind.Scoped)]
-public class RefreshTokenValidator : IRefreshTokenValidator
+public class TokenValidator : ITokenValidator
 {
     private readonly AuthenticationConfiguration _authenticationConfiguration;
 
-    public RefreshTokenValidator(AuthenticationConfiguration authenticationConfiguration)
+    public TokenValidator(AuthenticationConfiguration authenticationConfiguration)
     {
         _authenticationConfiguration = authenticationConfiguration;
     }
@@ -33,7 +33,7 @@ public class RefreshTokenValidator : IRefreshTokenValidator
             ValidIssuer = _authenticationConfiguration.Issuer,
             ValidAudience = _authenticationConfiguration.Audience,
             IssuerSigningKey =
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationConfiguration.RefreshSecretToken)),
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationConfiguration.SecretToken)),
             ClockSkew = TimeSpan.Zero
         };
 

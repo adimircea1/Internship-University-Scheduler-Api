@@ -28,21 +28,11 @@ public class DataContext : DbContext, IDataContext
         modelBuilder.Entity<User>()
             .HasKey(user => user.Id);
 
-        modelBuilder.Entity<RefreshToken>()
-            .HasKey(token => token.Id);
-
         modelBuilder.Entity<StudentRegisterRequest>()
             .HasKey(request => request.Id);
         
         modelBuilder.Entity<ProfessorRegisterRequest>()
             .HasKey(request => request.Id);
-
-        //set user-token-relation
-        modelBuilder.Entity<RefreshToken>()
-            .HasOne(refreshToken => refreshToken.User)
-            .WithOne(user => user.RefreshToken)
-            .HasForeignKey<RefreshToken>(refreshToken => refreshToken.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
         
         //set unique properties
         modelBuilder.Entity<User>()
@@ -84,10 +74,6 @@ public class DataContext : DbContext, IDataContext
         
         modelBuilder.Entity<User>()
             .Property(user => user.PasswordSalt)
-            .IsRequired();
-        
-        modelBuilder.Entity<RefreshToken>()
-            .Property(token => token.RefreshTokenValue)
             .IsRequired();
         
         //Fix DateOnly mapping

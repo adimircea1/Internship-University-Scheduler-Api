@@ -19,7 +19,6 @@ public class User : IEntity
     
     [DefaultValue(UserType.Student)]
     public UserType Role { get; set; }
-    public RefreshToken? RefreshToken { get; set; }
     
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
