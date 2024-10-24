@@ -11,6 +11,7 @@ using Internship.UniversityScheduler.Library.DataContracts;
 using Internship.UniversityScheduler.Library.GrpcServiceInterfaces;
 using Microsoft.Extensions.Logging;
 using OnEntitySharedLogic.Auth;
+using OnEntitySharedLogic.DistributedCache;
 using OnEntitySharedLogic.Extensions;
 using OnEntitySharedLogic.GRPC.Grpc_Setups;
 using OnEntitySharedLogic.Models;

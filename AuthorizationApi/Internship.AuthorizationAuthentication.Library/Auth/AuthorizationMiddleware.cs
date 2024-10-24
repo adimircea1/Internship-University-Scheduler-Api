@@ -1,6 +1,7 @@
 ﻿using Internship.AuthorizationAuthentication.Api.Core.Services.Abstractions;
 using Microsoft.AspNetCore.Http;
 using OnEntitySharedLogic.Auth;
+using OnEntitySharedLogic.DistributedCache;
 
 namespace Internship.AuthorizationAuthentication.Library.Auth;
 
