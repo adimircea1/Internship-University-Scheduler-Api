@@ -10,10 +10,10 @@ public class DistributedCacheService : IDistributedCacheService
     private readonly IDatabase _redisDb;
     private readonly ILogger<DistributedCacheService> _logger;
 
-    public DistributedCacheService(IConnectionMultiplexer connectionMultiplexer, ILogger<DistributedCacheService> logger)
+    public DistributedCacheService(ILogger<DistributedCacheService> logger, IRedisConnectionHelper connectionHelper)
     {
         _logger = logger;
-        _redisDb = connectionMultiplexer.GetDatabase();
+        _redisDb = connectionHelper.GetDatabase();
     }
 
     public async Task<DynamicResponse> AddAsync<T>(string key, T value, TimeSpan? expiry = null)
