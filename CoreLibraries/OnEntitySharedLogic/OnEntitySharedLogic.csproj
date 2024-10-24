@@ -7,7 +7,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>acremene</Title>
         <Authors>acremene</Authors>
-        <Version>3.0.3</Version>
+        <Version>3.0.4</Version>
     </PropertyGroup>
 
     <ItemGroup>
