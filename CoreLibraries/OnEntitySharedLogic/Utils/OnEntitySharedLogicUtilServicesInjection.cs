@@ -12,7 +12,6 @@ public class OnEntitySharedLogicUtilServicesInjection
     {
         services.AddScoped(typeof(IDatabaseGenericRepository<>), typeof(DatabaseGenericRepository<>));
         services.AddScoped<IExpressionBuilder, ExpressionBuilder>();
-        services.AddScoped<IDistributedCacheService, DistributedCacheService>();
     }
 
     public static void InjectRedis(IServiceCollection services)
@@ -21,5 +20,6 @@ public class OnEntitySharedLogicUtilServicesInjection
         services.AddScoped<IRedisConnectionHelper, RedisConnectionHelper>();
         var redis = new RedisConfiguration();
         services.AddSingleton(redis);
+        services.AddScoped<IDistributedCacheService, DistributedCacheService>();
     }
 }
