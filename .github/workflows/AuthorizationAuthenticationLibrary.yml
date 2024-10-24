@@ -1,0 +1,37 @@
+name: .NET Core
+on:
+  push:
+    branches: 
+    - dev
+    - featureDev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+           dotnet-version: '7.0.x'
+           source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }} 
+          
+      - name: Install dependencies
+        run: dotnet restore AuthorizationApi/Internship.AuthorizationAuthentication.Library/Internship.AuthorizationAuthentication.Library.csproj
+  
+      - name: Build
+        run: dotnet build --configuration Release --no-restore AuthorizationApi/Internship.AuthorizationAuthentication.Library/Internship.AuthorizationAuthentication.Library.csproj
+  
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal AuthorizationApi/Internship.AuthorizationAuthentication.Library/Internship.AuthorizationAuthentication.Library.csproj
+  
+      - name: Pack
+        run: dotnet pack --no-build --configuration Release AuthorizationApi/Internship.AuthorizationAuthentication.Library/Internship.AuthorizationAuthentication.Library.csproj --output .
+        
+      - name: Push to GitHub Packages
+        run: dotnet nuget push *.nupkg --api-key ${{ secrets.AUTH_TOKEN }}  --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --no-symbols --skip-duplicate
