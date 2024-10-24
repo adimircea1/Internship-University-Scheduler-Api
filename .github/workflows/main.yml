@@ -32,6 +32,9 @@ jobs:
   
       - name: Pack
         run: dotnet pack --no-build --configuration Release CoreLibraries/OnEntitySharedLogic/OnEntitySharedLogic.csproj --output .
-  
+
+      - name: Pack
+        run: dotnet pack --no-build --configuration Release AuthorizationApi/Internship.AuthorizationAuthentication.Library/Internship.AuthorizationAuthentication.Library.csproj --output .
+
       - name: Push to GitHub Packages
         run: dotnet nuget push *.nupkg --api-key ${{ secrets.AUTH_TOKEN }}  --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --no-symbols --skip-duplicate
