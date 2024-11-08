@@ -33,6 +33,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Internship.AuthorizationAuthentication.Api.Core\Internship.AuthorizationAuthentication.Api.Core.csproj" />
         <ProjectReference Include="..\Internship.AuthorizationAuthentication.Api.Infrastructure\Internship.AuthorizationAuthentication.Api.Infrastructure.csproj" />
+        <ProjectReference Include="..\Internship.AuthorizationAuthentication.Library\Internship.AuthorizationAuthentication.Library.csproj" />
     </ItemGroup>
 
     <ItemGroup>

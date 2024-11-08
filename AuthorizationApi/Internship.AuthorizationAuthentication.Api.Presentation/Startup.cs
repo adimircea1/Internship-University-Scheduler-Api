@@ -6,8 +6,8 @@ using Internship.AuthorizationAuthentication.Api.Core.Utils.AutoMapper;
 using Internship.AuthorizationAuthentication.Api.Core.Utils.Configuration;
 using Internship.AuthorizationAuthentication.Api.Infrastructure;
 using Internship.AuthorizationAuthentication.Api.Infrastructure.Utils;
+using Internship.AuthorizationAuthentication.Library.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -22,13 +22,10 @@ namespace Internship.AuthorizationAuthentication.Api.Presentation;
 public class Startup
 {
     private readonly IConfiguration _configuration;
-    private readonly ILogger<Startup> _logger;
-    public Startup(
-        IConfiguration configuration, 
-        ILogger<Startup> logger)
+
+    public Startup(IConfiguration configuration)
     {
         _configuration = configuration;
-        _logger = logger;
     }
 
     public void ConfigureServices(IServiceCollection services)
@@ -48,11 +45,12 @@ public class Startup
         services.InjectServices("Internship.AuthorizationAuthentication.Api.Core");
         services.AddScoped<IDataContext, DataContext>();
         OnEntitySharedLogicUtilServicesInjection.InjectServices(services);
+        OnEntitySharedLogicUtilServicesInjection.InjectRedis(services);
         GrpcContentInjection.InjectGrpcServices(services);
         
         services.AddGrpc();
         services.AddCodeFirstGrpc();
-        services.AddHttpContextAccessor();
+        services.AddHttpContextAccessor(); 
         
         services.AddControllers().AddJsonOptions(options =>
         {
@@ -145,7 +143,7 @@ public class Startup
             await next();
         });
         app.UseMiddleware<CaptureRequestBodyMiddleware>();
-        app.UseMiddleware<AuthorizationMiddleware>();
+        app.UseMiddleware<UserAuthorizationMiddleware>();
         app.UseAuthentication();
         app.UseAuthorization();
         app.UseMiddleware<ExceptionHandlingMiddleware>();

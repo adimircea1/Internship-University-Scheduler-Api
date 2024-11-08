@@ -1,27 +1,27 @@
 ﻿using Internship.AuthorizationAuthentication.Api.Core.Services.Abstractions;
 using Microsoft.AspNetCore.Http;
-using OnEntitySharedLogic.Auth;
 using OnEntitySharedLogic.DistributedCache;
 
 namespace Internship.AuthorizationAuthentication.Library.Auth;
 
-public class UserAuthenticationMiddleware
+public class UserAuthorizationMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly IDistributedCacheService _distributedCacheService;
-    private readonly IUserService _userService;
+   
     
-    public UserAuthenticationMiddleware(RequestDelegate next,
-        IDistributedCacheService distributedCacheService,
-        IUserService userService)
+    public UserAuthorizationMiddleware(RequestDelegate next)
     {
         _next = next;
-        _distributedCacheService = distributedCacheService;
-        _userService = userService;
     }
 
-    public async Task InvokeAsync(HttpContext context)
+    public async Task InvokeAsync(HttpContext context, IUserService userService, IDistributedCacheService distributedCacheService)
     {
+        if (context.Request.Path.StartsWithSegments("/swagger") || context.Request.Path.ToString().Contains("login"))
+        {
+            await _next(context); 
+            return;
+        }
+        
         if (context.User.Identity is null|| !context.User.Identity.IsAuthenticated)
         {
             await SetUnauthorizedAccessAsync(context);
@@ -44,7 +44,7 @@ public class UserAuthenticationMiddleware
             return;
         }
 
-        var existingUser = await _userService.GetUserByIdAsync(int.Parse(id.Value));
+        var existingUser = await userService.GetUserByIdAsync(int.Parse(id.Value));
 
         if (existingUser is null)
         {
@@ -53,7 +53,7 @@ public class UserAuthenticationMiddleware
         }
         
         var key = $"{existingUser.Email}_AccessToken_{existingUser.Id}";
-        var accessToken = await _distributedCacheService.GetAsync<string>(key);
+        var accessToken = await distributedCacheService.GetAsync<string>(key);
 
         if (accessToken != context.Request.Headers["Authorization"])
         {
